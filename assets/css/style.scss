@@ -1,0 +1,132 @@
+/**
+* style.scss
+* Theo Pak <mail@theopak.com>
+*/
+
+
+/* SASS VARIABLES ========================================================= */
+$font0:       'Proxima Nova',Helvetica Neue',Helvatica,Arial,sans-serif;
+$font1:       'Roboto Condensed',$font0;
+$font2:       'Montserrat',$font0;
+$bg:          white;
+$fg:          #333333;
+$color1:      #eee;
+$color2:      #fcfcfc;
+$color3:      #428bca;
+
+
+/* NORMALIZATION, ETC ===================================================== */
+@import "bootstrap.min.css";
+@import "animate-custom.css";
+@import "nprogress.css";
+
+
+/* GLOBAL COMPONENTS ====================================================== */
+body {
+  //padding-top: 50px + 20px;  // <getbootstrap.com/components/#navbar-fixed-top>
+  min-width: 240px;
+}
+h1, h2, h3, h4, .navbar>.container {
+  font-family: $font1;
+}
+a {
+  cursor: pointer;
+}
+#nprogress .bar,
+#nprogress .spinner {
+  z-index: 999999;
+}
+p.center {
+  text-align: center;
+}
+.headroom {
+  // Headroom.js Styles: Refer to <stackoverflow.com/a/20671771/1137699>
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all .2s ease-in-out;
+}
+.headroom--unpinned { top: -100px; }
+.headroom--pinned { top: 0; }
+.disable-hover, .disable-hover * {
+  // Improves scroll performance (especially on mobile).
+  // Refer to <thecssninja.com/javascript/pointer-events-60fps>
+  pointer-events: none !important;
+}
+
+
+/* HEADER ================================================================= */
+#header {
+  a, .btn {
+    font-weight: 300;
+  }
+}
+
+
+/* CONTENT BODY =========================================================== */
+.wrapper .container, footer.container {
+  display: block;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1170px;
+  width: 100%;
+}
+.wrapper>section {
+  min-height: 100vh;
+  padding-bottom: 20vh;
+  &:last-of-type {
+    min-height: 87vh;
+  }
+  .row {
+    font-family: $font0;
+  }
+}
+img#show-picture {
+  transition: all 0.5s ease-in-out;
+}
+img.loading {
+  opacity: 0.3;
+}
+
+
+/* FOOTER ================================================================= */
+footer {
+  //margin-top: 90px;
+  padding: 1em 0;
+  border-top: 1px solid $color1;
+  color: darken($bg, 50);
+  text-align: justify;
+  a {
+    font-weight: bold;
+    color: darken($bg, 50);
+    &:hover {
+      color: $color3;
+      text-decoration: none;
+    }
+  }
+  img {
+    padding: 0 0.5em 0 0;
+  }
+}
+
+
+/* RESPONSIVE STYLES ====================================================== */
+@media (max-width: 992px) {
+  // sm only
+}
+@media (max-width: 768px) {
+  // xs only
+  body {
+    padding-top: 0;
+  }
+  .wrapper {
+    .page-header h1 {
+      font-size: 2em;
+    }
+  }
+  .wrapper>section {
+    min-height: 80vh;
+  }
+}
