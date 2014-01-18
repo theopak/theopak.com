@@ -1,0 +1,111 @@
+@import url(bootstrap.min.css);
+@import url(animate-custom.css);
+@import url(nprogress.css);
+/**
+* style.scss
+* Theo Pak <mail@theopak.com>
+*/
+/* SASS PREPROCESSOR ====================================================== */
+/* NORMALIZATION, ETC ===================================================== */
+/* GLOBAL COMPONENTS ====================================================== */
+body {
+  min-width: 240px;
+  line-height: 1.375em; }
+
+h1, h2, h3, h4, .navbar > .container {
+  font-family: "Roboto", "Proxima Nova", "Helvetica Neue", Helvatica, Arial, sans-serif; }
+
+a {
+  cursor: pointer; }
+
+#nprogress .bar,
+#nprogress .spinner {
+  z-index: 999999; }
+
+p.center {
+  text-align: center; }
+
+.headroom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.2s ease-in-out; }
+
+.headroom--unpinned {
+  top: -100px; }
+
+.headroom--pinned {
+  top: 0; }
+
+.disable-hover, .disable-hover * {
+  pointer-events: none !important; }
+
+/* HEADER ================================================================= */
+#header {
+  margin: 0 0 2em;
+  padding: 5em 0 3em;
+  background-color: #444;
+  color: #fafafa; }
+  #header img, #header h1, #header h2 {
+    margin: 0 auto;
+    text-align: center; }
+  #header h1 {
+    padding-top: 0.5em;
+    text-transform: uppercase;
+    font: 100 3em/1.375em "Roboto", "Proxima Nova", "Helvetica Neue", Helvatica, Arial, sans-serif; }
+  #header h2 {
+    font: 1.75em/1em "Anonymous Pro", "Proxima Nova", "Helvetica Neue", Helvatica, Arial, sans-serif; }
+
+/* CONTENT BODY =========================================================== */
+.wrapper .container, footer.container {
+  display: block;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1170px;
+  width: 100%; }
+
+.wrapper > section {
+  min-height: 100vh;
+  padding-bottom: 20vh; }
+  .wrapper > section:last-of-type {
+    min-height: 87vh; }
+  .wrapper > section .row {
+    font-family: "Proxima Nova", "Helvetica Neue", Helvatica, Arial, sans-serif; }
+
+img#show-picture {
+  transition: all 0.5s ease-in-out; }
+
+img.loading {
+  opacity: 0.3; }
+
+/* FOOTER ================================================================= */
+footer {
+  padding: 1em 0;
+  border-top: 1px solid #eeeeee;
+  color: #7a7a7a;
+  text-align: justify; }
+  footer a {
+    font-weight: bold;
+    color: #7a7a7a; }
+    footer a:hover {
+      color: #428bca;
+      text-decoration: none; }
+  footer img {
+    padding: 0 0.5em 0 0; }
+
+/* RESPONSIVE STYLES ====================================================== */
+@media (max-width: 768px) {
+  body {
+    padding-top: 0; }
+
+  #header {
+    padding-left: 15px;
+    padding-right: 15px; }
+
+  .wrapper .page-header h1 {
+    font-size: 2em; }
+
+  .wrapper > section {
+    min-height: 80vh; } }

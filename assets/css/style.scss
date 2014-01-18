@@ -4,15 +4,23 @@
 */
 
 
-/* SASS VARIABLES ========================================================= */
-$font0:       'Proxima Nova',Helvetica Neue',Helvatica,Arial,sans-serif;
-$font1:       'Roboto Condensed',$font0;
-$font2:       'Montserrat',$font0;
-$bg:          white;
+/* SASS PREPROCESSOR ====================================================== */
+$font0:       'Proxima Nova','Helvetica Neue',Helvatica,Arial,sans-serif;
+$font1:       'Roboto',$font0;
+$font2:       'Anonymous Pro',$font0;
+$bg:          #fafafa;
 $fg:          #333333;
 $color1:      #eee;
 $color2:      #fcfcfc;
 $color3:      #428bca;
+@mixin vertical-align {
+  // <zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/>
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
 
 /* NORMALIZATION, ETC ===================================================== */
@@ -25,6 +33,7 @@ $color3:      #428bca;
 body {
   //padding-top: 50px + 20px;  // <getbootstrap.com/components/#navbar-fixed-top>
   min-width: 240px;
+  line-height: 1.375em;
 }
 h1, h2, h3, h4, .navbar>.container {
   font-family: $font1;
@@ -58,8 +67,21 @@ p.center {
 
 /* HEADER ================================================================= */
 #header {
-  a, .btn {
-    font-weight: 300;
+  margin: 0 0 2em;
+  padding: 5em 0 3em;
+  background-color: #444;
+  color: $bg;
+  img, h1, h2 {
+    margin: 0 auto;
+    text-align: center;
+  }
+  h1 {
+    padding-top: 0.5em;
+    text-transform: uppercase;
+    font: 100 3em/1.375em $font1;
+  }
+  h2 {
+    font: 1.75em/1em $font2;
   }
 }
 
@@ -120,6 +142,10 @@ footer {
   // xs only
   body {
     padding-top: 0;
+  }
+  #header {
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .wrapper {
     .page-header h1 {
