@@ -5,9 +5,6 @@
 
 
 /* SASS PREPROCESSOR ====================================================== */
-$font0:       'Proxima Nova','Helvetica Neue',Helvatica,Arial,sans-serif;
-$font1:       'Roboto',$font0;
-$font2:       'Anonymous Pro',$font0;
 $bg:          #fafafa;
 $fg:          #333333;
 $color1:      #eee;
@@ -26,7 +23,6 @@ $color3:      #428bca;
 /* NORMALIZATION, ETC ===================================================== */
 @import "vars";
 @import "inuit.css/inuit";
-//@import "bootstrap.min.css";
 @import "animate-custom.css";
 @import "nprogress.css";
 @import "entypo.css";
@@ -36,11 +32,8 @@ $color3:      #428bca;
 body {
   //padding-top: 50px + 20px;  // <getbootstrap.com/components/#navbar-fixed-top>
   min-width: 240px;
-  max-width: 1024px;
+  max-width: 960px;
   line-height: 1.375em;
-}
-h1, h2, h3, h4, .navbar>.container {
-  font-family: $font1;
 }
 a {
   cursor: pointer;
@@ -48,14 +41,13 @@ a {
 pre, code {
   font-family: $code-face;
 }
-.gw {
-  margin: 0 auto;
-  max-width: 960px;
-}
 .disable-hover, .disable-hover * {
   // Improves scroll performance (especially on mobile).
   // Refer to <thecssninja.com/javascript/pointer-events-60fps>
   pointer-events: none !important;
+}
+img.loading {
+  opacity: 0.3;
 }
 
 
@@ -113,32 +105,6 @@ pre, code {
 }
 
 
-.wrapper .container, footer.container {
-  display: block;
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  max-width: 1170px;
-  width: 100%;
-}
-.wrapper>section {
-  min-height: 100vh;
-  padding-bottom: 20vh;
-  &:last-of-type {
-    min-height: 87vh;
-  }
-  .row {
-    font-family: $font0;
-  }
-}
-img#show-picture {
-  transition: all 0.5s ease-in-out;
-}
-img.loading {
-  opacity: 0.3;
-}
-
-
 /* FOOTER ================================================================= */
 footer {
   //margin-top: 90px;
@@ -153,9 +119,6 @@ footer {
       color: $color3;
       text-decoration: none;
     }
-  }
-  img {
-    padding: 0 0.5em 0 0;
   }
 }
 
