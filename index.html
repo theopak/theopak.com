@@ -3,38 +3,53 @@
   <head>
     <meta charset="utf-8">
     <title>Theo Pak</title>
+    <meta name="author" content="/humans.txt">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro|Roboto:100' rel='stylesheet' type='text/css'>
+    <meta name="google-site-verification" content="T8SEALv-ZUWY_keICKbOeiqyGmcO8CKnTEOdLJpvUho" />
+    <meta property="fb:page_id" content="10152490018343532" />
   </head>
   <body>
 
 
     <header id="header">
-      <div class="row animated fadeInUp" itemscope itemtype="http://data-vocabulary.org/Person">
-        <div class="col-sm-8 col-sm-push-2">
-          <img class="img-responsive img-circle" itemprop="image" src="http://1.gravatar.com/avatar/287abe4d8c0bf8eae92dd59b753f6323?size=128.jpg" alt="Theo Pak"/>
-          <h1 itemprop="name">Theo Pak</h1>
-          <h2 itemprop="title">CS student and <span id="taglineTyper" data-typer-targets="jack-of-all-trades,undergrad researcher,bandwagoner">gun for hire</span>.</h2>
-          <span itemprop="affiliation" class="hide">Rensselaer Polytechnic Institute</span>
-          <span itemprop="location" class="hide">Troy, NY</span>
-          <a itemprop="url" class="hide" href="https://plus.google.com/117763939156319759658/">Google&#43;</a>
-        </div>
+      <div class="media brand" itemscope itemtype="http://data-vocabulary.org/Person">
+        <img class="media__img img--round" itemprop="image" src="http://1.gravatar.com/avatar/287abe4d8c0bf8eae92dd59b753f6323?size=44.jpg" alt="Theo Pak"/>
+        <h1 class="media__body" itemprop="name">Theo Pak</h1>
+        <h2 class="visuallyhidden" itemprop="title">undergraduate researcher</h2>
+        <span class="visuallyhidden" itemprop="affiliation">Rensselaer Polytechnic Institute</span>
+        <span class="visuallyhidden" itemprop="location">Troy, NY</span>
+        <a itemprop="url" class="visuallyhidden" href="http://twitter.com/theopak">Twitter @theopak</a>
       </div>
+      <ul class="nav nav--stacked">
+        <li><a class="link-complex" href="http://twitter.com/theopak"><span class="entypo-social twitter"> </span><span class="link-complex__target">Twitter</span></a></li>
+        <li><a class="link-complex" href="https://github.com/theopak"><span class="entypo-social github"> </span><span class="link-complex__target">Github</span></a></li>
+        <li><a class="link-complex" href="https://www.linkedin.com/in/theopak"><span class="entypo-social linkedin"> </span><span class="link-complex__target">Linkedin</span></a></li>
+        <li><a class="link-complex" href="mailto:mail@theopak.com"><span class="entypo mail"> </span><span class="link-complex__target">Contact Me</span></a></li>
+      </ul>
     </header>
 
-    <div class="container animated fadeIn">
-      <div class="row">
-        <div class="col-sm-4 col-xs-12 col-sm-push-4">
+    <div class="gw animated fadeIn">
+      <div class="one-whole animated fadeIn">
+        <div class="hero">
+          <h2>CS student <span id="taglineTyper" data-typer-targets="undergrad researcher,jack of all trades,available for hire">available for hire</span>.</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="animated fadeIn">
+      <div class="gw">
+        <div class="g one-whole">
           <p itemprop="description">I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I'm also President of the <a href="http://rpiehc.org">Embedded Hardware Club</a> and an undergraduate researcher at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a>.</p>
         </div>
       </div>
     </div>
 
 
-    <footer class="container animated fadeIn">
-      <div class="row">
-        <div class="col-sm-12">
+    <footer class="animated fadeIn">
+      <div class="gw">
+        <div class="g one-whole">
           <p>&copy; 2005&ndash;2013 Theodore Xavier Pak, except as indicated.</p>
         </div>
       </div>
@@ -44,8 +59,6 @@
     <script src="assets/js/jquery-1.10.2.min.js"></script>
     <script src="assets/js/jquery.smooth-scroll.min.js"></script>
     <script src="assets/js/jquery.typer.js"></script>
-    <script src="assets/js/headroom.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function(){
 
@@ -67,7 +80,15 @@
         });
 
         // jquery.typer.js
-        $('taglineTyper').typer();
+        $('#taglineTyper').typer({
+          highlightSpeed    : 5,
+          typeSpeed         : 30,
+          clearDelay        : 500,
+          typeDelay         : 5,
+          clearOnHighlight  : true,
+          typerDataAttr     : 'data-typer-targets',
+          typerInterval     : 1500
+        });
 
       });
 
@@ -76,7 +97,7 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-10935216-5', 'theopak.com');
+      //ga('create', 'UA-10935216-5', 'theopak.com');
       ga('send', 'pageview');
     </script>
 

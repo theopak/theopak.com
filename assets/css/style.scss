@@ -29,12 +29,14 @@ $color3:      #428bca;
 //@import "bootstrap.min.css";
 @import "animate-custom.css";
 @import "nprogress.css";
+@import "entypo.css";
 
 
 /* GLOBAL COMPONENTS ====================================================== */
 body {
   //padding-top: 50px + 20px;  // <getbootstrap.com/components/#navbar-fixed-top>
   min-width: 240px;
+  max-width: 1024px;
   line-height: 1.375em;
 }
 h1, h2, h3, h4, .navbar>.container {
@@ -43,23 +45,13 @@ h1, h2, h3, h4, .navbar>.container {
 a {
   cursor: pointer;
 }
-#nprogress .bar,
-#nprogress .spinner {
-  z-index: 999999;
+pre, code {
+  font-family: $code-face;
 }
-p.center {
-  text-align: center;
+.gw {
+  margin: 0 auto;
+  max-width: 960px;
 }
-.headroom {
-  // Headroom.js Styles: Refer to <stackoverflow.com/a/20671771/1137699>
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: all .2s ease-in-out;
-}
-.headroom--unpinned { top: -100px; }
-.headroom--pinned { top: 0; }
 .disable-hover, .disable-hover * {
   // Improves scroll performance (especially on mobile).
   // Refer to <thecssninja.com/javascript/pointer-events-60fps>
@@ -69,26 +61,58 @@ p.center {
 
 /* HEADER ================================================================= */
 #header {
-  margin: 0 0 2em;
-  padding: 5em 0 3em;
+  padding: .75em 15px;
   background-color: #444;
   color: $bg;
-  img, h1, h2 {
-    margin: 0 auto;
-    text-align: center;
+  .media {
+    padding-top: 15px;
+  }
+  .media__img {
+    margin-right: 10px;
   }
   h1 {
-    padding-top: 0.5em;
+    //border: 1px solid $brand-color;
+    font: 100 1.75em/46px $brand-face;
     text-transform: uppercase;
-    font: 100 3em/1.375em $font1;
+    //background: white url(../img/ocean.jpg) repeat center;
+    //-webkit-text-fill-color: transparent;
+    //-webkit-background-clip: text;
+    //text-shadow: 0 0 3px black;
+    white-space: nowrap;
   }
-  h2 {
-    font: 1.75em/1em $font2;
+  .nav {
+    a {
+      color: $brand-color;
+      font: 100 1em/2em $brand-face;
+      text-transform: lowercase;
+      .entypo, .entypo-social {
+        display: inline-block;
+        visibility: hidden;
+        margin-right: 0;
+        padding: 0 5px 0 0;
+        width: 25px;
+        vertical-align: middle;
+        font-size: 1.5em;
+        text-align: right;
+      }
+      &:hover {
+        .entypo, .entypo-social {
+          visibility: visible;
+        }
+      }
+    }
   }
 }
 
 
 /* CONTENT BODY =========================================================== */
+.hero {
+  h2 {
+    font: 1.75em/50px $code-face;
+  }
+}
+
+
 .wrapper .container, footer.container {
   display: block;
   margin: 0 auto;
@@ -137,24 +161,23 @@ footer {
 
 
 /* RESPONSIVE STYLES ====================================================== */
-@media (max-width: 992px) {
-  // sm only
-}
-@media (max-width: 768px) {
-  // xs only
+@include media-query(lap-and-up) {
   body {
-    padding-top: 0;
+    margin: 3em auto 5em 250px;
+    padding: 15px 20px;
+    background-color: $brand-color;
+    box-shadow: 0 0 14px black;
   }
   #header {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .wrapper {
-    .page-header h1 {
-      font-size: 2em;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    width: 250px - 30px;
+    padding-top: 3em;
+    .nav {
+      padding-left: 54px - 30px;
     }
-  }
-  .wrapper>section {
-    min-height: 80vh;
   }
 }
