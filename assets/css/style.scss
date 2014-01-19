@@ -24,7 +24,9 @@ $color3:      #428bca;
 
 
 /* NORMALIZATION, ETC ===================================================== */
-@import "bootstrap.min.css";
+@import "vars";
+@import "inuit.css/inuit";
+//@import "bootstrap.min.css";
 @import "animate-custom.css";
 @import "nprogress.css";
 
