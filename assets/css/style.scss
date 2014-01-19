@@ -35,8 +35,18 @@ body {
   max-width: 960px;
   line-height: 1.375em;
 }
+::selection {
+  background: #add1ed;  // LOL
+  text-shadow: none;
+  color: $brand-color;
+}
 a {
   cursor: pointer;
+  color: $color3;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 pre, code {
   font-family: $code-face;
@@ -139,7 +149,7 @@ footer {
     margin: 0;
     width: 250px - 30px;
     padding-top: 3em;
-    .nav {
+    .nav a {
       padding-left: 54px - 30px;
     }
   }
