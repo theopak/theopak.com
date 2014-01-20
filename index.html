@@ -14,46 +14,74 @@
 
 
     <header id="header">
-      <div class="media brand" itemscope itemtype="http://data-vocabulary.org/Person">
+      <a class="link-complex media brand" href="/#about-me" itemscope itemtype="http://data-vocabulary.org/Person">
         <img class="media__img img--round" itemprop="image" src="http://1.gravatar.com/avatar/287abe4d8c0bf8eae92dd59b753f6323?size=44.jpg" alt="Theo Pak"/>
-        <h1 class="media__body" itemprop="name">Theo Pak</h1>
-        <h2 class="visuallyhidden" itemprop="title">undergraduate researcher</h2>
+        <h1 class="media__body" itemprop="name"><span class="link-complex__target">Theo Pak</span></h1>
+        <h2 class="visuallyhidden" itemprop="title">Undergraduate Researcher</h2>
         <span class="visuallyhidden" itemprop="affiliation">Rensselaer Polytechnic Institute</span>
         <span class="visuallyhidden" itemprop="location">Troy, NY</span>
         <a itemprop="url" class="visuallyhidden" href="http://twitter.com/theopak">Twitter @theopak</a>
-      </div>
+      </a>
       <ul class="nav nav--stacked">
-        <li><a class="link-complex" href="http://twitter.com/theopak"><span class="entypo-social twitter"> </span><span class="link-complex__target">Twitter</span></a></li>
-        <li><a class="link-complex" href="https://github.com/theopak"><span class="entypo-social github"> </span><span class="link-complex__target">Github</span></a></li>
-        <li><a class="link-complex" href="https://www.linkedin.com/in/theopak"><span class="entypo-social linkedin"> </span><span class="link-complex__target">Linkedin</span></a></li>
-        <li><a class="link-complex" href="mailto:mail@theopak.com"><span class="entypo mail"> </span><span class="link-complex__target">Contact Me</span></a></li>
+        <li><a class="link-complex" href="#blog"><span class="entypo newspaper"> </span><span class="link-complex__target">Blog</span></a></li>
+        <li><a class="link-complex" href="#portfolio"><span class="entypo folder"> </span><span class="link-complex__target">Portfolio</span></a></li>
+        <li><a class="link-complex" href="assets/resume.pdf"><span class="entypo graduation-cap"> </span><span class="link-complex__target">Resume</span></a></li>
       </ul>
     </header>
 
-    <div class="gw animated fadeIn">
-      <div class="one-whole animated fadeIn">
-        <div class="hero">
-          <h2>CS student <span id="taglineTyper" data-typer-targets="undergrad researcher,jack of all trades,available for hire">available for hire</span>.</h2>
-        </div>
-      </div>
-    </div>
+    <div class="fullscreen-cover"></div>
 
-    <div class="animated fadeIn">
-      <div class="gw">
-        <div class="g one-whole">
-          <p itemprop="description">I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I'm also President of the <a href="http://rpiehc.org">Embedded Hardware Club</a> and an undergraduate researcher at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a>.</p>
-        </div>
-      </div>
-    </div>
+    <div class="wrapper">
 
-
-    <footer class="animated fadeIn">
-      <div class="gw">
-        <div class="g one-whole">
-          <p>&copy; 2005&ndash;2013 Theodore Xavier Pak, except as indicated.</p>
+      <section id="about-me" class="coversheet animated fadeIn">
+        <div class="grid-wrapper ">
+          <div class="g one-whole">
+            <h1>Theo Pak</h1>
+          </div>
+          <div class="g one-whole">
+            <h2><span id="taglineTyper" data-typer-targets="computer science student,undergrad researcher,jack of all trades,will code for $$$">computer science student</span>.</h2>
+          </div>
         </div>
-      </div>
-    </footer>
+        <div class="gw">
+          <div class="g one-whole lap-one-half desk-one-third">
+            <p>Hi! I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I also do research at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a> and work on projects with the <a href="http://rpiEHC.org">Embedded Hardware Club</a>.</p>
+          </div>
+          <div class="g one-whole">
+            <ul class="nav">
+              <li><a href="http://twitter.com/theopak"><span class="entypo-social twitter"></span></a></li>
+              <li><a href="https://github.com/theopak"><span class="entypo-social github"></span></a></li>
+              <li><a href="https://www.linkedin.com/in/theopak"><span class="entypo-social linkedin"></span></a></li>
+              <li><a href="mailto:mail@theopak.com"><span class="entypo mail"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" class="animated fadeIn">
+        <div class="gw">
+          <div class="g one-whole">
+            <p itemprop="description">I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I'm also President of the <a href="http://rpiehc.org">Embedded Hardware Club</a> and an undergraduate researcher at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="animated fadeIn">
+        <div class="gw">
+          <div class="g one-whole">
+            <p itemprop="description">I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I'm also President of the <a href="http://rpiehc.org">Embedded Hardware Club</a> and an undergraduate researcher at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="animated fadeIn">
+        <div class="gw">
+          <div class="g one-whole">
+            <p>&copy; 2005&ndash;2013 Theodore Xavier Pak, except as indicated. View source on <a href="https://github.com/theopak/theopak.github.io">Github</a>.</p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- .wrapper -->
     
 
     <script src="assets/js/jquery-1.10.2.min.js"></script>
@@ -82,9 +110,9 @@
         // jquery.typer.js
         $('#taglineTyper').typer({
           highlightSpeed    : 5,
-          typeSpeed         : 30,
+          typeSpeed         : 1,
           clearDelay        : 500,
-          typeDelay         : 5,
+          typeDelay         : 1,
           clearOnHighlight  : true,
           typerDataAttr     : 'data-typer-targets',
           typerInterval     : 1500

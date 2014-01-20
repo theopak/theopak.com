@@ -20,25 +20,25 @@
  * and introducing objects and abstractions is as simple as switching the
  * following variables to `true`.
  */
-$use-grids:         false;
+$use-grids:         false;  // jsfiddle.net/inuitcss/CLYUC
 $use-flexbox:       false;
 $use-columns:       false;
-$use-nav:           true ;  // jsfiddle.net/inuitcss/Vnph4
+$use-nav:            true;  // jsfiddle.net/inuitcss/Vnph4
 $use-options:       false;
 $use-pagination:    false;
 $use-breadcrumb:    false;
-$use-media:         true ;  // jsfiddle.net/inuitcss/cf4Qs
+$use-media:          true;  // jsfiddle.net/inuitcss/cf4Qs
 $use-marginalia:    false;
-$use-island:        true ;  // jsfiddle.net/inuitcss/u8pV3
+$use-island:         true;  // jsfiddle.net/inuitcss/u8pV3
 $use-block-list:    false;
 $use-matrix:        false;
 $use-split:         false;
 $use-this-or-this:  false;
-$use-link-complex:  true ;   // jsfiddle.net/inuitcss/rt9M3
+$use-link-complex:   true;   // jsfiddle.net/inuitcss/rt9M3
 $use-flyout:        false;
 $use-arrows:        false;
 $use-sprite:        false;
-$use-icon-text:     true ;  // jsfiddle.net/inuitcss/Q6Lbf
+$use-icon-text:      true;  // jsfiddle.net/inuitcss/Q6Lbf
 $use-beautons:      false;
 $use-lozenges:      false;
 $use-rules:         false;
@@ -52,13 +52,16 @@ $use-greybox:       false;
 /**
  * Place any variables that should override inuit.css’ defaults here.
  */
-$base-font-family:  'Proxima Nova','Helvetica Neue',Helvatica,Arial,sans-serif;
-$lap-start:         481px!default;
-$desk-start:        1024px!default;
+$lap-start:         340px;
+$desk-start:        780px;
 $desk-wide-start:   1200px!default;
+$base-font-size:    16px!default;
+$base-line-height:  24px!default;
+$base-font-family:  'Proxima Nova','Helvetica Neue',Helvatica,Arial,sans-serif;
+$base-ui-color:     #444;         // Default colour for objects’ borders etc.
 $brand-color:       #fafafa;
 $brand-face:        'Roboto';
-$brand-round:        50%;   // Rounded corner radius. 50% makes circles.
+$brand-round:       50%;          // Rounded corner radius. 50% makes circles.
 
 
 /*------------------------------------*\
@@ -67,4 +70,6 @@ $brand-round:        50%;   // Rounded corner radius. 50% makes circles.
 /**
  * Place any of your own variables that sit on top of inuit.css here.
  */
+$base-color:        #fafafa;      // My default for backgrounds etc.
 $code-face:         'Anonymous Pro',monospace,serif;
+$active-color:      #428bca;      // My default for link and item selection.

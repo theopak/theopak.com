@@ -5,11 +5,6 @@
 
 
 /* SASS PREPROCESSOR ====================================================== */
-$bg:          #fafafa;
-$fg:          #333333;
-$color1:      #eee;
-$color2:      #fcfcfc;
-$color3:      #428bca;
 @mixin vertical-align {
   // <zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/>
   position: relative;
@@ -30,10 +25,8 @@ $color3:      #428bca;
 
 /* GLOBAL COMPONENTS ====================================================== */
 body {
-  //padding-top: 50px + 20px;  // <getbootstrap.com/components/#navbar-fixed-top>
-  min-width: 240px;
-  max-width: 960px;
   line-height: 1.375em;
+  text-rendering: optimizeLegibility;
 }
 ::selection {
   background: #add1ed;  // LOL
@@ -42,8 +35,9 @@ body {
 }
 a {
   cursor: pointer;
-  color: $color3;
+  color: $active-color;
   text-decoration: none;
+  transition: all 0.1s ease-in-out;
   &:hover {
     text-decoration: underline;
   }
@@ -59,16 +53,16 @@ pre, code {
 img.loading {
   opacity: 0.3;
 }
+#taglineTyper {
+  min-height: $base-line-height;
+}
 
 
 /* HEADER ================================================================= */
 #header {
-  padding: .75em 15px;
-  background-color: #444;
-  color: $bg;
-  .media {
-    padding-top: 15px;
-  }
+  padding: 1em 20px;
+  background-color: $base-ui-color;
+  color: $base-color;
   .media__img {
     margin-right: 10px;
   }
@@ -108,38 +102,108 @@ img.loading {
 
 
 /* CONTENT BODY =========================================================== */
-.hero {
+.fullscreen-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #BADA55 url(../img/ocean.jpg) repeat center center fixed;
+}
+.wrapper {
+  padding: 0 20px;
+}
+section, footer {
+  margin: 4em 0 1em;
+  padding: 1em 20px;
+  min-width: 240px;
+  max-width: 960px;
+  background-color: $brand-color;
+  //border: 1px solid lighten($brand-color, 50);
+  box-shadow: 0 0 14px $base-ui-color;
+}
+.coversheet {
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  padding: 2.75em 0 1em;
+  min-height: 100vh;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: $brand-color;
+  .gw, .grid-wrapper {
+    margin-bottom: $base-line-height;
+  }
+  h1, h2, h3, h4, h5, p, .nav {
+    display: inline-block;
+    background-color: $base-ui-color;
+    opacity: 0.8;
+    margin: 0;
+    padding: 5px 20px;
+  }
+  h1 {
+    margin-bottom: 0;
+    font: 100 3em $brand-face;
+    text-transform: uppercase;
+  }
   h2 {
-    font: 1.75em/50px $code-face;
+    font: 1.75em $code-face;
+  }
+  p {
+    background-color: $base-ui-color;
+    text-align: justify;
+  }
+  .nav {
+    padding-top: 0;
+    background: transparent;
+    font-size: 2.5em;
+    a {
+      color: $brand-color;
+      text-decoration: none;
+      &:hover {
+        color: $active-color;
+      }
+    }
   }
 }
-
-
-/* FOOTER ================================================================= */
 footer {
-  //margin-top: 90px;
-  padding: 1em 0;
-  border-top: 1px solid $color1;
-  color: darken($bg, 50);
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.375em 20px 1em;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: lighten($base-ui-color, 50);
   text-align: justify;
+  p {
+    border-top: 1px solid lighten($base-ui-color, 50);
+  }
   a {
     font-weight: bold;
-    color: darken($bg, 50);
+    color: lighten($base-ui-color, 50);
     &:hover {
-      color: $color3;
-      text-decoration: none;
+      color: $active-color;
+    }
+  }
+  &:hover {
+    color: lighten($base-ui-color, 30);
+    a {
+      color: lighten($base-ui-color, 10);
     }
   }
 }
 
 
 /* RESPONSIVE STYLES ====================================================== */
-@include media-query(lap-and-up) {
-  body {
-    margin: 3em auto 5em 250px;
-    padding: 15px 20px;
-    background-color: $brand-color;
-    box-shadow: 0 0 14px black;
+@include media-query(desk) {
+  .wrapper {
+    //box-sizing: border-box;
+    margin: 0;
+    padding-left: 250px;
+    height: 200vh;  // (?)
   }
   #header {
     position: fixed;
@@ -147,10 +211,10 @@ footer {
     bottom: 0;
     left: 0;
     margin: 0;
+    padding: 4em 0 1em 20px;
     width: 250px - 30px;
-    padding-top: 3em;
     .nav a {
-      padding-left: 54px - 30px;
+      padding-left: 54px - 25px;
     }
   }
 }
