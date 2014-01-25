@@ -91,7 +91,7 @@ img.loading {
         font-size: 1.5em;
         text-align: right;
       }
-      &:hover {
+      &:hover, &.current {
         .entypo, .entypo-social {
           visibility: visible;
         }
@@ -114,6 +114,7 @@ img.loading {
 }
 .wrapper {
   padding: 0 20px;
+  background-color: $brand-color;
 }
 section, footer {
   margin: 4em 0 1em;
@@ -122,7 +123,7 @@ section, footer {
   max-width: 960px;
   background-color: $brand-color;
   //border: 1px solid lighten($brand-color, 50);
-  box-shadow: 0 0 14px $base-ui-color;
+  //box-shadow: 0 0 14px $base-ui-color;
 }
 .coversheet {
   box-sizing: border-box;
