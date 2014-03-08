@@ -6,7 +6,7 @@
     <meta name="author" content="/humans.txt">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro|Roboto:100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro|Roboto:100|Lato:300' rel='stylesheet' type='text/css'>
     <meta name="google-site-verification" content="T8SEALv-ZUWY_keICKbOeiqyGmcO8CKnTEOdLJpvUho" />
     <meta property="fb:page_id" content="10152490018343532" />
   </head>
@@ -33,26 +33,28 @@
 
     <div class="wrapper">
 
-      <section id="about-me" class="coversheet animated fadeIn">
-        <div class="grid-wrapper ">
-          <div class="g one-whole">
-            <h1>Theo Pak</h1>
+      <section id="about-me" class="coversheet animated fadeIn" onclick="$('#blog').smoothScroll();">
+        <div class="content">
+          <div class="gw">
+            <div class="g one-whole">
+              <h1>Theo Pak</h1>
+            </div>
+            <div class="g one-whole">
+              <h2><span id="taglineTyper" data-typer-targets="computer science undergrad,undergrad researcher,wears many hats,will code for $$$">computer science student</span>.</h2>
+            </div>
           </div>
-          <div class="g one-whole">
-            <h2><span id="taglineTyper" data-typer-targets="computer science student,undergrad researcher,jack of all trades,will code for $$$">computer science student</span>.</h2>
-          </div>
-        </div>
-        <div class="gw">
-          <div class="g one-whole lap-one-half desk-one-third">
-            <p>Hi! I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I also do research at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a> and work on projects with the <a href="http://rpiEHC.org">Embedded Hardware Club</a>.</p>
-          </div>
-          <div class="g one-whole">
-            <ul class="nav">
-              <li><a href="http://twitter.com/theopak"><span class="entypo-social twitter"></span></a></li>
-              <li><a href="https://github.com/theopak"><span class="entypo-social github"></span></a></li>
-              <li><a href="https://www.linkedin.com/in/theopak"><span class="entypo-social linkedin"></span></a></li>
-              <li><a href="mailto:mail@theopak.com"><span class="entypo mail"></span></a></li>
-            </ul>
+          <div class="gw">
+            <div class="g one-whole lap-one-half desk-one-third">
+              <p>Hi! I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I also do research at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a> and work on projects with the <a href="http://rpiEHC.org">Embedded Hardware Club</a>.</p>
+            </div>
+            <div class="g one-whole">
+              <ul class="nav">
+                <li><a href="http://twitter.com/theopak"      title="twitter @theopak"      ><span class="entypo-social twitter"></span></a></li>
+                <li><a href="https://github.com/theopak"      title="theopak on Github"     ><span class="entypo-social github"></span></a></li>
+                <li><a href="https://linkedin.com/in/theopak" title="Theo Pak on LinkedIn"  ><span class="entypo-social linkedin"></span></a></li>
+                <li><a href="mailto:mail@theopak.com"         title="email mail@theopak.com"><span class="entypo mail"></span></a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -68,6 +70,7 @@
       <section id="portfolio" class="animated fadeIn">
         <div class="gw">
           <div class="g one-whole">
+            <h1>Portfolio</h1>
             <p itemprop="description">I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I'm also President of the <a href="http://rpiehc.org">Embedded Hardware Club</a> and an undergraduate researcher at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a>.</p>
           </div>
         </div>
@@ -76,7 +79,7 @@
       <footer class="animated fadeIn">
         <div class="gw">
           <div class="g one-whole">
-            <p>&copy; 2005&ndash;2013 Theodore Xavier Pak, except as indicated. View source on <a href="https://github.com/theopak/theopak.github.io">Github</a>.</p>
+            <p>&copy; 2005&ndash;2014 Theodore Xavier Pak, except as indicated. View source on <a href="https://github.com/theopak/theopak.github.io">Github</a>.</p>
           </div>
         </div>
       </footer>
@@ -106,6 +109,10 @@
         $('a').smoothScroll({
           offset: -50
         });
+
+        // Animate each #home>.hero>p
+        $('.coversheet .g').css( 'opacity', 0 );
+        $('.coversheet .g').delay(250).each(function(i){ $(this).delay(50*i).animate({opacity:'1'},250); });
 
         // jquery.typer.js
         $('#taglineTyper').typer({
