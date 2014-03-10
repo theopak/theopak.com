@@ -40,7 +40,7 @@
               <h1>Theo Pak</h1>
             </div>
             <div class="g one-whole">
-              <h2><span id="taglineTyper" data-typer-targets="computer science undergrad,undergrad researcher,wears many hats,will code for $$$">computer science student</span>.</h2>
+              <h2>computer science undergrad</h2>
             </div>
           </div>
           <div class="gw">
@@ -135,7 +135,6 @@
 
     <script src="assets/js/jquery-1.10.2.min.js"></script>
     <script src="assets/js/jquery.smooth-scroll.min.js"></script>
-    <script src="assets/js/jquery.typer.js"></script>
     <script>
       $(document).ready(function(){
 
@@ -159,17 +158,6 @@
         // Animate each #home>.hero>p iteratively
         $('.coversheet .g').css( 'opacity', 0 );
         $('.coversheet .g').delay(250).each(function(i){ $(this).delay(50*i).animate({opacity:'1'},250); });
-
-        // jquery.typer.js
-        $('#taglineTyper').typer({
-          highlightSpeed    : 5,
-          typeSpeed         : 1,
-          clearDelay        : 500,
-          typeDelay         : 1,
-          clearOnHighlight  : true,
-          typerDataAttr     : 'data-typer-targets',
-          typerInterval     : 1500
-        });
 
       });
 
