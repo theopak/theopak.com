@@ -2840,7 +2840,7 @@ img.loading {
       vertical-align: middle;
       font-size: 1.5em;
       text-align: right; }
-    #header .nav a:hover .entypo, #header .nav a:hover .entypo-social, #header .nav a.current .entypo, #header .nav a.current .entypo-social {
+    #header .nav a:hover .entypo, #header .nav a:hover .entypo-social, #header .nav a:active .entypo, #header .nav a:active .entypo-social, #header .nav a.current .entypo, #header .nav a.current .entypo-social {
       visibility: visible; }
 
 /* CONTENT BODY =========================================================== */
@@ -2855,21 +2855,26 @@ img.loading {
   background: #444444 url(../img/ocean.jpg) repeat center center fixed; }
 
 .wrapper {
-  padding: 0 20px;
-  background-color: #fafafa; }
+  padding: 0 20px; }
 
 section, footer {
   margin: 4em 0 1em;
   padding: 1em 20px;
   min-width: 240px;
   max-width: 960px; }
+  section h1, footer h1 {
+    font: normal 100 1.75em/46px "Roboto";
+    text-transform: uppercase; }
+  section h2, footer h2 {
+    font: normal 300 1.25em "Lato", "Proxima Nova", "Helvetica Neue", Helvatica, Arial, sans-serif;
+    margin-bottom: 0; }
 
 .coversheet {
   position: relative;
   display: block;
   box-sizing: border-box;
   margin: 0;
-  padding: 2.75em 0;
+  padding: 0 0 2.75em;
   min-height: 100vh;
   background: transparent;
   border: none;
@@ -2905,6 +2910,17 @@ section, footer {
       .coversheet .nav a:hover {
         color: #428bca; }
 
+.post h2 a {
+  color: #444444; }
+  .post h2 a:hover {
+    text-decoration: none; }
+  .post h2 a:hover:after {
+    content: "\A0\bb";
+    color: #428bca; }
+.post small {
+  font-style: italic;
+  color: #919191; }
+
 footer {
   margin-left: 0;
   margin-right: 0;
@@ -2931,8 +2947,7 @@ footer {
 @media only screen and (min-width: 780px) {
   .wrapper {
     margin: 0;
-    padding-left: 250px;
-    height: 200vh; }
+    padding-left: 250px; }
 
   #header {
     position: fixed;

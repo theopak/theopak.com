@@ -62,7 +62,37 @@
       <section id="blog" class="animated fadeIn">
         <div class="gw">
           <div class="g one-whole">
-            <p itemprop="description">I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I'm also President of the <a href="http://rpiehc.org">Embedded Hardware Club</a> and an undergraduate researcher at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a>.</p>
+            <h1>Blog</h1>
+            <article class="post">
+              <small><time>March 2014</time> on The Approach at Rensselaer</small>
+              <h2><a href="#">Presenting Academic Research at CES in Las Vegas</a></h2>
+              <p>It was an unusual experience to exhibit our academic research at CES, the largest consumer electronics show in the world.</p>
+            </article>
+            <article class="post">
+              <small><time>March 2014</time> on Medium</small>
+              <h2><a href="https://medium.com/hackers-and-hacking/99b54fc93e47">Have Fun at Hackathons</a></h2>
+              <p>Three tips and expectations for investing in yourself: meet new people, have fun, and maybe ship a product.</p>
+            </article>
+            <article class="post">
+              <small><time>March 2013</time></small>
+              <h2><a href="#">Ground Rules for Effective Teams</a></h2>
+              <p>Some meetings are less productive than they should be, and the project suffers as a result. Here's my shortlist of "Ground Rules" that a team needs to know before their meetings can focus on getting work done instead of just talking about getting work done.</p>
+            </article>
+            <article class="post">
+              <small><time>August 2012</time></small>
+              <h2><a href="#">Comparing Version Control Systems</a></h2>
+              <p>What's the best way to manage source code? I recently joined a project that used CVS to manage an html website and Perl backend, but is looking to switch to modern software. The favorites in the argument between centralized and distributed version control are Subversion and Git, respectively. Here's my take on the issue.</p>
+            </article>
+            <article class="post">
+              <small><time>September 2011</time></small>
+              <h2><a href="#">H5BP for WordPress</a></h2>
+              <p>I really love the HTML5 Boilerplate project; the default JS, CSS, and HTML5 templates include forward-thinking tools (that you should probably be using already), and the pre-configurations save time. But my favorite part of the project is the build script.</p>
+            </article>
+            <article class="post">
+              <small><time>May 2011</time></small>
+              <h2><a href="#">Water Drop</a></h2>
+              <p>This contrived photograph demonstrates surface tension and Newton's Third Law of Motion. </p>
+            </article>
           </div>
         </div>
       </section>
@@ -70,9 +100,25 @@
       <section id="portfolio" class="animated fadeIn">
         <div class="gw">
           <div class="g one-whole">
-            <h1>Portfolio</h1>
-            <p itemprop="description">I study Computer Science at <a href="http://rpi.edu">RPI</a>, where I'm also President of the <a href="http://rpiehc.org">Embedded Hardware Club</a> and an undergraduate researcher at the <a href="http://smartlighting.rpi.edu">Smart Lighting ERC</a>.</p>
-          </div>
+            <h1>Portfolio</h1></article>
+          <article>
+            <h2><emph>Developer and Co-Founder</emph>, Trump App</h2>
+            <p itemprop="description"><a href="http://trumpyourfriends.com">Trump</a> is a social game that's like Cards Against Humanity, except with pictures. Be on the lookout for the best pic to trump your friends. Shipping soon to iOS and Android.<p>
+        </div>
+        <div class="gw">
+          <div class="g one-whole">
+            <h2><emph>Product Engineer</emph>, My-Rhythm.com</h2>
+            <p itemprop="description">Now co-filing a US patent after creating value for the <a rhef="http://smartlighting.rpi.edu">Smart Lighting ERC</a> at the 2014 International CES in Las Vegas.<p>
+        </div>
+        <div class="gw">
+          <div class="g one-whole">
+            <h2><emph>Computer Systems Engineering Intern</emph>, Mechanical Solutions, Inc.</h2>
+            <p itemprop="description">During Summer 2013 I contributed to a DoD SIBR Phase II project by authoring C++/Boost and Embedded C code for x86 and AVR systems.<p>
+        </div>
+        <div class="gw">
+          <div class="g one-whole">
+            <h2><emph>President</emph>, RPI Embedded Hardware Club</h2>
+            <p itemprop="description">As President since Feb 2013 I coordinate events, do outreach and technical consulting at weekly office hours in campus-approved workshop, cast leadership, resolve conflict, delegate as part of leadership team of six.<p>
         </div>
       </section>
 
@@ -94,7 +140,7 @@
       $(document).ready(function(){
 
         // Faster scrolling
-        //   Via <thecssninja.com/javascript/pointer-events-60fps>.
+        //   via <thecssninja.com/javascript/pointer-events-60fps>.
         var body = document.body, timer;
         window.addEventListener('scroll', function(){
           clearTimeout(timer);
@@ -110,7 +156,7 @@
           offset: -50
         });
 
-        // Animate each #home>.hero>p
+        // Animate each #home>.hero>p iteratively
         $('.coversheet .g').css( 'opacity', 0 );
         $('.coversheet .g').delay(250).each(function(i){ $(this).delay(50*i).animate({opacity:'1'},250); });
 
