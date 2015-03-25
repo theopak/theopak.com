@@ -1,0 +1,10 @@
+{
+  "name": "theopak.com",
+  "version": "0.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theopak/theopak.com.git"
+  },
+  "author": "Theodore X. Pak"
+}
