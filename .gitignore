@@ -2,4 +2,8 @@
 *.sublime-project
 *.sublime-workspace
 *.scssc
+*.sassc
 *.bak
+
+node_modules/
+dist/
