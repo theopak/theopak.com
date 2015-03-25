@@ -1,0 +1,14 @@
+<div class="island">
+
+  <div class="article__header">
+    <h1 class="alpha article__title"><%= title %> (<span class="moment" data-time="<%= date %>" data-format="YYYY"><%= date %></span>)</h1>
+    <div class="article__info"><%= desc %></div>
+  </div>
+
+  <div class="article">
+    <%- yield %>
+  </div>
+
+  <%- partial("/_partials/contact") %>
+
+</div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+
+    <title><% if(this.title) { %><%= title %> — <% } %><%= site_title %></title>
+    <meta property="fb:page_id" content="10152490018343532" />
+    <meta property="og:title" content="<% if(this.title) { %><%= title %> — <% } %><%= site_title %>" />
+    <meta property="og:description" content="<%= site_description %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= site_url %>" />
+    <meta property="og:image" content="<%= site_url %>/apple-touch-icon.png" />
+    <meta property="og:site_name" content="<%= site_title %>" />
+
+    <link rel="stylesheet" href="/assets/styles/main.css" type="text/css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro|Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
+    <meta name="google-site-verification" content="T8SEALv-ZUWY_keICKbOeiqyGmcO8CKnTEOdLJpvUho" />
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      //ga('create', 'UA-10935216-5', 'theopak.com');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+
+    <% if(current.source !== 'index') { %>
+    <a class="fixed back-button" href="/#blog">
+      <span class="icon"></span>
+      <span class="hint">theopak.com</span>
+    </a>
+    <% } %>
+
+    <% if(current.source === 'index') { %>
+    <div id="header" class="island">
+      <%- partial("_partials/contact") %>
+      <!--<ul class="nav nav--banner" role="navigation">
+        <li class="nav__item"><a href="/#"        >About</a></li>
+        <li class="nav__item"><a href="/#blog"    >Blog</a></li>
+        <li class="nav__item"><a href="/#projects">Projects</a></li>
+        <li class="nav__item"><a href="/#contact" >Contact</a></li>
+      </ul>-->
+    </div>
+    <% } %>
+
+    <div id="wrapper">
+      <% if(current.path[0] == "blog" && current.source !== 'index') { %>
+        <%- partial('_partials/post') %>
+      <% } else if(current.path[0] == "work" && current.source !== 'index') { %>
+        <%- partial('_partials/project') %>
+      <% } else { %>
+        <%- yield %>
+      <% } %>
+    </div>
+
+    <footer id="footer" class="animated fadeIn island">
+      <hr/>
+      <p class="zeta">Copyright © 2005–<%= new Date().getFullYear() %> Theodore Xavier Pak and others. Thank you for taking the time.</p>
+      <p class="zeta">
+        <a href="http://twitter.com/theopak">Twitter</a> •
+        <a href="http://linkedin.com/in/theopak">Linkedin</a> •
+        <a href="https://github.com/theopak/theopak.com">Github</a>
+      </p>
+    </footer>
+    
+
+    <script src="/assets/scripts/smooth-scroll.min.js"></script>
+    <script src="/assets/scripts/jquery.min.js"></script>
+    <script src="/assets/scripts/underscore-min.js"></script>
+    <script src="/assets/scripts/moment.min.js"></script>
+    <script src="/assets/scripts/app.js"></script>
+
+  </body>
+</html>

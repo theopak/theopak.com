@@ -1,0 +1,56 @@
+<% if (typeof public.work._data !== 'undefined') { %>
+<div id="projects" class="island">
+  <hr class="separator" />
+  <h2 class="beta brand">Project Highlights</h2>
+  <div class="full-bleed grid--center">
+    <% for (var slug in public.work._data) {
+      var project = public.work._data[slug];
+      var permalink = "/work/" + slug;
+      if (project.link) {
+        permalink = project.link;
+      }
+      %><div class="grid__item desk-wide-one-quarter desk-one-third lap-one-half palm-one-whole">
+        <a class="text--left project" href="<%= permalink %>">
+          <div class="project__preview">
+            <img src="<%= project.preview %>" />
+            <p class="project__desc"><%= project.desc %></p>
+          </div>
+          <h1 class="beta brand project__title"><%= project.title %></h1>
+        </a>
+      </div><% }; %>
+  </div>
+</div>
+<% }; %>
+
+<% if (typeof public.blog._data !== 'undefined') { %>
+<div id="blog" class="island">
+  <hr class="separator" />
+  <h2 class="beta brand">Blog</h2>
+  <% for (var slug in public.blog._data){ %>
+    <%
+      var post = public.blog._data[slug];
+      var permalink = "/blog/" + slug;
+      if (post.link) {
+        permalink = post.link;
+      }
+    %>
+    <a class="post" href="<%= permalink %>">
+      <h1 class="post__title"><span><%= post.title %></span></h1>
+      <p class="post__desc"><%= post.desc %></p>
+      <small class="post__date"><span class="moment" data-time="<%= post.date %>"><%= post.date %></span></small>
+    </a>
+  <% }; %>
+</div>
+<% }; %>
+
+<div id="contact" class="island">
+  <hr class="separator" />
+  <h2 class="beta brand">Contact Me</h2>
+  <p>The best way to reach me is via <a href="mailto:theopak@gmail.com">email</a> or <a href="https://facebook.com/theopak">facebook messenger</a>.</p>
+  <ul class="nav">
+    <li><a href="http://twitter.com/theopak"      title="twitter @theopak"      ><span class="entypo-social twitter"></span></a></li>
+    <li><a href="https://github.com/theopak"      title="theopak on Github"     ><span class="entypo-social github"></span></a></li>
+    <li><a href="https://linkedin.com/in/theopak" title="Theo Pak on LinkedIn"  ><span class="entypo-social linkedin"></span></a></li>
+    <li><a href="mailto:mail@theopak.com"         title="email mail@theopak.com"><span class="entypo mail"></span></a></li>
+  </ul>
+</div>
