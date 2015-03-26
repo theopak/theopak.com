@@ -13,18 +13,43 @@
     <% for (var slug in public.work._data) {
       var project = public.work._data[slug];
       var permalink = '/work/' + slug;
-      if (project.link) {
+      if (typeof project.link !== 'undefined') {
         permalink = project.link;
       }
+      if (project.featured === 'true') {
+      %><div class="grid__item one-whole">
+        <div id="project__picks" class="island" href=".">
+          <div class="grid">
+            <div class="grid__item one-half">
+              <h1 class="beta brand">Picks for iPhone <span class="icon"></span></h1>
+              <p class="project-info__desc">Find your best photos and get rid of the rest. Top&nbsp;10 at PennApps W15 hackathon. Pic by Trevor&nbsp;Phillippi. Coming soon to the App&nbsp;Store.</p>
+            </div><!--
+            --><div class="grid__item one-half">
+              <video autoplay loop muted>
+                <source src="<%- project.preview_video %>" type="video/mp4">
+                <img src="<%= project.preview %>" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div><% 
+      } else {
       %><div class="grid__item desk-wide-one-quarter desk-one-half lap-one-half palm-one-whole">
         <a class="text--left project" href="<%= permalink %>">
-          <div class="project__preview">
+          <% if (project.preview_video) { %>
+          <video autoplay loop muted>
+            <source src="<%- project.preview_video %>" type="video/mp4">
             <img src="<%= project.preview %>" />
-            <p class="project__desc"><%= project.desc %></p>
+          </video>
+          <% } else { %>
+          <img src="<%= project.preview %>" />
+          <% } %>
+          <div class="project-info">
+            <h1 class="beta brand project-info__title"><%- project.title %> <span class="icon"></span></h1>
+            <p class="project-info__desc"><%- project.desc %></p>
           </div>
-          <h1 class="beta brand project__title"><%= project.title %></h1>
         </a>
-      </div><% }; %>
+      </div><% }; }; %>
   </div>
 </div>
 <% }; %>
@@ -42,8 +67,8 @@
       }
     %>
     <a class="post" href="<%= permalink %>">
-      <h1 class="post__title"><span><%= post.title %></span></h1>
-      <p class="post__desc"><%= post.desc %></p>
+      <h1 class="post__title"><span><%- post.title %></span></h1>
+      <p class="post__desc"><%- post.desc %></p>
       <small class="post__date"><span class="moment" data-time="<%= post.date %>"><%= post.date %></span></small>
     </a>
   <% }; %>

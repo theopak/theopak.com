@@ -22,9 +22,9 @@ $(document).ready(function(){
     if(typeof format === 'undefined') {
       if(moment(time) >= moment().subtract(1, 'days')) {
         format = 'ha [today]'
-      } else if(moment(time) >= moment().subtract('days', 2)) {
+      } else if(moment(time) >= moment().subtract(2, 'days')) {
         format = 'ha [yesterday]'
-      } else if(moment(time) >= moment().subtract('days', 7)) {
+      } else if(moment(time) >= moment().subtract(7, 'days')) {
         format = '[last] dddd';
       } else {
         format = 'MMM D, YYYY';

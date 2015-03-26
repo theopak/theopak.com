@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
 
-    <title><% if(this.title) { %><%= title %> — <% } %><%= site_title %></title>
+    <title><% if(locals.title) { %><%= title %> — <% } %><%= site_title %></title>
     <meta property="og:title" content="<% if(this.title) { %><%= title %> — <% } %><%= site_title %>" />
     <meta property="og:description" content="<%= site_description %>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= site_url %>" />
     <meta property="og:image" content="<%= site_url %>/apple-touch-icon.png" />
     <meta property="og:site_name" content="<%= site_title %>" />
+    <link rel="shortcut icon" href="favicon.ico">
 
     <link rel="stylesheet" href="/assets/styles/main.css" type="text/css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
@@ -52,9 +53,10 @@
       <% } %>
     </div>
 
-    <footer id="footer" class="animated fadeIn island">
+    <footer id="footer" class="island">
       <hr/>
-      <p class="zeta">Copyright © 2005–<%= new Date().getFullYear() %> Theodore Xavier Pak and others. Thank you for taking the time.</p>
+      <p class="zeta">
+        Copyright © 2005–<%= new Date().getFullYear() %> Theodore&nbsp;Xavier&nbsp;Pak and others. Thank&nbsp;you for taking&nbsp;the&nbsp;time.</p>
       <p class="zeta">
         <a href="http://twitter.com/theopak">Twitter</a> •
         <a href="http://linkedin.com/in/theopak">Linkedin</a> •

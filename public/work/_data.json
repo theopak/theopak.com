@@ -1,28 +1,28 @@
 { 
   "picks": {
     "title": "Picks for iPhone",
-    "desc": "iOS app that helps you find your best photos and get rid of the rest. The first version of this app was built in 36 hours and placed in the Top 10 at PennApps, one of the world’s most competitive collegiate hackathons. Pic by Trevor Phillippi.",
+    "desc": "Find your best photos and get rid of the rest. Top&nbsp;10 at PennApps W15 hackathon. Pic by Trevor&nbsp;Phillippi. Coming soon to the App&nbsp;Store.",
     "date": "2015-01-19",
     "preview": "http://d1697b2w85msn7.cloudfront.net/images/picks-preview.png",
     "link": "http://picksapp.co"
   }, 
   "droughtio": {
     "title": "Drought.io",
-    "desc": "Interactive visualization of drought in the US, the rainfall patterns that lead to it, and the affect it has on agriculture. Built as an Angular.js app with Altan Gulen, released under MIT License.",
+    "desc": "Interactive visualization of drought, rainfall patterns, and US agriculture. Angular.js app released under MIT License with Altan&nbsp;Gulen.",
     "date": "2014-12-04",
     "preview": "/assets/images/work/droughtio.thumb.png",
     "link": "http://drought.io"
   },
   "rpiehc": {
-    "title": "Embedded Hardware Club",
-    "desc": "I was a founding member of the Embedded Hardware Club at RPI. I did some talks and organized a few events as Web Administrator (2011–2012) and President (2012–2014).",
+    "title": "RPI EHC",
+    "desc": "I did some talks and organized a few events while President of the Embedded&nbsp;Hardware Club at Rensselaer Polytechnic&nbsp;Institute.",
     "date": "2014-11-14",
     "preview": "/assets/images/work/rpiehc.thumb.png",
     "link": "http://rpiEHC.org"
   },
   "bathchat": {
     "title": "Bathchat",
-    "desc": "How do you make a better Snapchat? Rebuild it following the iOS HIG and add geofences defined by bodies of water. Made for the Software Design & Documentation class at RPI. Pic by Trevor Phillippi.",
+    "desc": "It’s like Snapchat, but with geofences defined by bodies of water. Made for the Software Design & Documentation class at RPI. Pic by Trevor&nbsp;Phillippi.",
     "date": "2014",
     "preview": "http://d1697b2w85msn7.cloudfront.net/images/bathchat-preview.png",
     "link": "http://bathchat.github.io"
