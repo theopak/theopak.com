@@ -7,7 +7,6 @@
     <meta http-equiv="Content-Language" content="en">
 
     <title><% if(this.title) { %><%= title %> — <% } %><%= site_title %></title>
-    <meta property="fb:page_id" content="10152490018343532" />
     <meta property="og:title" content="<% if(this.title) { %><%= title %> — <% } %><%= site_title %>" />
     <meta property="og:description" content="<%= site_description %>" />
     <meta property="og:type" content="website" />
@@ -39,21 +38,15 @@
 
     <% if(current.source === 'index') { %>
     <div id="header" class="island">
-      <%- partial("_partials/contact") %>
-      <!--<ul class="nav nav--banner" role="navigation">
-        <li class="nav__item"><a href="/#"        >About</a></li>
-        <li class="nav__item"><a href="/#blog"    >Blog</a></li>
-        <li class="nav__item"><a href="/#projects">Projects</a></li>
-        <li class="nav__item"><a href="/#contact" >Contact</a></li>
-      </ul>-->
+      <%- partial("_partials/_contact") %>
     </div>
     <% } %>
 
     <div id="wrapper">
       <% if(current.path[0] == "blog" && current.source !== 'index') { %>
-        <%- partial('_partials/post') %>
+        <%- partial('_partials/_post') %>
       <% } else if(current.path[0] == "work" && current.source !== 'index') { %>
-        <%- partial('_partials/project') %>
+        <%- partial('_partials/_project') %>
       <% } else { %>
         <%- yield %>
       <% } %>

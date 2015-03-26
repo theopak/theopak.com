@@ -2,14 +2,21 @@
 <div id="projects" class="island">
   <hr class="separator" />
   <h2 class="beta brand">Project Highlights</h2>
-  <div class="full-bleed grid--center">
+  <% 
+    var count = Object.keys(public.work._data).length
+    var c = 'grid--center';
+    if (count >= 4) {
+      c = 'full-bleed ' + c;
+    }
+  %>
+  <div class="<%- c %>">
     <% for (var slug in public.work._data) {
       var project = public.work._data[slug];
-      var permalink = "/work/" + slug;
+      var permalink = '/work/' + slug;
       if (project.link) {
         permalink = project.link;
       }
-      %><div class="grid__item desk-wide-one-quarter desk-one-third lap-one-half palm-one-whole">
+      %><div class="grid__item desk-wide-one-quarter desk-one-half lap-one-half palm-one-whole">
         <a class="text--left project" href="<%= permalink %>">
           <div class="project__preview">
             <img src="<%= project.preview %>" />
@@ -46,7 +53,7 @@
 <div id="contact" class="island">
   <hr class="separator" />
   <h2 class="beta brand">Contact Me</h2>
-  <p>The best way to reach me is via <a href="mailto:theopak@gmail.com">email</a> or <a href="https://facebook.com/theopak">facebook messenger</a>.</p>
+  <p>The best way to reach me is via <a href="mailto:theopak@gmail.com">email</a> or a <a href="https://facebook.com/theopak">facebook</a> message.</p>
   <ul class="nav">
     <li><a href="http://twitter.com/theopak"      title="twitter @theopak"      ><span class="entypo-social twitter"></span></a></li>
     <li><a href="https://github.com/theopak"      title="theopak on Github"     ><span class="entypo-social github"></span></a></li>

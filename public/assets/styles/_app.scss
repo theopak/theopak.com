@@ -3,14 +3,10 @@ body {
   border-top: 0.125rem solid $brand-color;
 }
 
-#wrapper .island,
-#footer.island {
-  margin: 0 auto;
-  max-width: 1280px;
-}
-
 .island {
+  margin: 0 auto;
   padding: 2rem 0;
+  max-width: 1280px;
 }
 
 .full-bleed {
