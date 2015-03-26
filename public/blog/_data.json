@@ -1,0 +1,13 @@
+{
+  "have-fun-at-hackathons": {
+    "title": "Have Fun at Hackathons",
+    "desc": "You can win huge cash prizes by exploiting hackathons—and that’s not even hard—but the way to maximize your return on time isn’t a trick at all: meet new people, have fun, and maybe ship a product.",
+    "date": "2014-02-20",
+    "link": "https://medium.com/@theopak/have-fun-at-hackathons-99b54fc93e47"
+  },
+  "comparing-version-control-systems": {
+    "title": "Comparing Version Control Systems",
+    "desc": "What's the best way to manage source code? I recently joined a project that used CVS to manage an html website and Perl backend, but is looking to switch to modern software. The favorites in the argument between centralized and distributed version control are Subversion and Git, respectively. Here's my take on the issue.",
+    "date": "2012-08-17"
+  }
+}
