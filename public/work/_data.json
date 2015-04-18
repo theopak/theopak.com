@@ -1,11 +1,18 @@
-{ 
+{
+  "lightfeed": {
+    "title": "Lightfeed Inc.",
+    "desc": "Wearable spectrometer. As Cofounder & CTO of this startup I built the team and product.",
+    "date": "2014-12",
+    "preview": "/assets/images/work/lightfeed.thumb.jpg",
+    "link": "http://getlightfeed.com"
+  },
   "picks": {
     "title": "Picks for iPhone",
     "desc": "Find your best photos and get rid of the rest. Top&nbsp;10 at PennApps W15 hackathon. Pic by Trevor&nbsp;Phillippi. Coming soon to the App&nbsp;Store.",
     "date": "2015-01-19",
     "preview": "http://d1697b2w85msn7.cloudfront.net/images/picks-preview.png",
     "link": "http://picksapp.co"
-  }, 
+  },
   "droughtio": {
     "title": "Drought.io",
     "desc": "Interactive visualization of drought, rainfall patterns, and US agriculture. Angular.js app released under MIT License with Altan&nbsp;Gulen.",
