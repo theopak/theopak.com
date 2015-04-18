@@ -1,8 +1,8 @@
 <% if (typeof public.work._data !== 'undefined') { %>
 <div id="projects" class="island">
   <hr class="separator" />
-  <h2 class="beta brand">Project Highlights</h2>
-  <% 
+  <h2 class="beta brand">Selected Work</h2>
+  <%
     var count = Object.keys(public.work._data).length
     var c = 'grid--center';
     if (count >= 4) {
@@ -32,9 +32,9 @@
             </div>
           </div>
         </div>
-      </div><% 
+      </div><%
       } else {
-      %><div class="grid__item desk-wide-one-quarter desk-one-half lap-one-half palm-one-whole">
+      %><div class="grid__item desk-wide-one-third desk-one-half lap-one-half palm-one-whole">
         <a class="text--left project" href="<%= permalink %>">
           <% if (project.preview_video) { %>
           <video autoplay loop muted>
@@ -45,7 +45,7 @@
           <img src="<%= project.preview %>" />
           <% } %>
           <div class="project-info">
-            <h1 class="beta brand project-info__title"><%- project.title %> <span class="icon"></span></h1>
+            <h1 class="beta brand project-info__title"><%- project.title %></h1>
             <p class="project-info__desc"><%- project.desc %></p>
           </div>
         </a>
@@ -78,7 +78,7 @@
 <div id="contact" class="island">
   <hr class="separator" />
   <h2 class="beta brand">Contact Me</h2>
-  <p>The best way to reach me is via <a href="mailto:theopak@gmail.com">email</a> or a <a href="https://facebook.com/theopak">facebook</a> message.</p>
+  <p>The best way to reach me is by <a href="mailto:theopak@gmail.com">email</a> or a <a href="https://facebook.com/theopak">facebook</a> message.</p>
   <ul class="nav">
     <li><a href="http://twitter.com/theopak"      title="twitter @theopak"      ><span class="entypo-social twitter"></span></a></li>
     <li><a href="https://github.com/theopak"      title="theopak on Github"     ><span class="entypo-social github"></span></a></li>
