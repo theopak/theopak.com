@@ -2,9 +2,16 @@
   "name": "theopak.com",
   "version": "0.0.0",
   "description": "",
+  "private": true,
+  "author": "Theodore X. Pak <theopak@gmail.com> (https://github.com/theopak)",
   "repository": {
     "type": "git",
     "url": "https://github.com/theopak/theopak.com.git"
   },
-  "author": "Theodore X. Pak"
+  "devDependencies": {
+    "browser-sync": "^2.7.6",
+    "gulp": "^3.9.0",
+    "gulp-gh-pages": "^0.5.1",
+    "harp": "^0.17.0"
+  }
 }

@@ -5,9 +5,6 @@
   <%
     var count = Object.keys(public.work._data).length
     var c = 'grid--center';
-    if (count >= 4) {
-      c = 'full-bleed ' + c;
-    }
   %>
   <div class="<%- c %>">
     <% for (var slug in public.work._data) {

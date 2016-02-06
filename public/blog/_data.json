@@ -1,4 +1,10 @@
 {
+  "jwt-authentication-in-a-web-service": {
+    "title": "JWT Authentication in a Web Service",
+    "desc": "So, you want to add auth to your API. Great! Do you have 10 minutes?",
+    "date": "2016-02-04",
+    "link": "https://medium.com/@theopak/jwt-authentication-in-a-web-service-27ba5171916"
+  },
   "have-fun-at-hackathons": {
     "title": "Have Fun at Hackathons",
     "desc": "You can win huge cash prizes by exploiting hackathons—and that’s not even hard—but the way to maximize your return on time isn’t a trick at all: meet new people, have fun, and maybe ship a product.",
