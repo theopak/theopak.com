@@ -1,12 +1,15 @@
 {
   "name": "theopak.com",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
   "private": true,
   "author": "Theodore X. Pak <theopak@gmail.com> (https://github.com/theopak)",
   "repository": {
     "type": "git",
     "url": "https://github.com/theopak/theopak.com.git"
+  },
+  "scripts": {
+    "start": "browser-sync start --server --files 'src/**'"
   },
   "devDependencies": {
     "browser-sync": "^2.7.6",
