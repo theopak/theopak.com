@@ -5,6 +5,7 @@
 *.sassc
 *.bak
 
+npm-debug.log
 node_modules/
 dist/
 .publish/
