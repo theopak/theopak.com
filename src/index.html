@@ -12,44 +12,86 @@
         height: 0.5rem;
         border: none;
       }
+
+      .ParallaxCard {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        cursor: auto !important;
+      }
+
+      .ParallaxCard-container:before,
+      .ParallaxCard-container:after   { content: " "; display: table; }
+      .ParallaxCard-container:after   { clear: both; }
+      .ParallaxCard-container         { *zoom: 1; }
+
+      .ParallaxCard-shadow {
+        visibility: hidden;
+      }
+
+      .ParallaxCard-layers {
+        margin: 10vh 10vw;
+        width: 80vw !important;
+        height: 80vh !important;
+        overflow: visible !important;
+      }
+
+      .card-bg {
+        width: 80%;
+        height: auto;
+        margin: 10%;
+        background: dodgerblue;
+      }
+
+      .text-line {
+        display: inline;
+        margin: 0;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.3125rem;
+        -webkit-box-decoration: clone;
+        box-decoration: clone;
+      }
     </style>
   </head>
   <body>
 
-    <div class="flex-ns items-center-ns justify-around-ns vh-100-ns w-50-xl ph3 ph5-m ph6-l pt4 pb3 pb6-ns f5 fw3 lh-title"
-      itemscope
-      itemtype="http://schema.org/Person">
-      <div class="w-50-ns pr4-ns mb5 mb0-ns pb0-ns pv3-ns">
-        <h1 class="mt4 mt0-ns mb3 f2 f1-l fw4"
-          itemprop="name">Theo Pak</h1>
-        <p class="mb3 f4 f3-m f2-l">
-          I'm a <span itemprop="jobTitle">software engineer</span> at <span itemscope itemtype="http://schema.org/Organization"><span itemprop="name">Cimpress-Vistaprint</span></span> in the Boston area
-        </p>
-        <p class="mb3 f4 f3-m f2-l">
-          I like to make software products that help people do hard things more easily
-        </p>
-        <p class="mb3 f4 f3-m f2-l">
-          Lately my focus is on improving user experience by improving developer experience
-        </p>
-        <p class="mb0 f4">
-          <a href="http://twitter.com/theopak"
-            class="f6 dib pr2 no-underline mid-gray dim">
-            twitter
-          </a>
-          <a href="http://linkedin.com/in/theopak"
-            class="f6 dib pr2 no-underline mid-gray dim">
-            linkedin
-          </a>
-          <a href="https://github.com/theopak/theopak.com"
-            class="f6 dib pr2 no-underline mid-gray dim">
-            github
-          </a>
-        </p>
-      </div>
-      <div class="flex-ns items-center-ns justify-start-ns overflow-hidden w-50-ns h-100-ns pl3-ns tc tl-ns">
-        <img src="theopak-headshot.jpg"
-          alt="Theo Pak"
-          itemprop="image" />
+    <div id="me-lol" class="vh-100-ns pb3 pb6-ns f5 fw3 lh-title">
+      <div class="flex-ns items-center-ns justify-around-ns vh-100-ns w-50-xl ph3 ph5-m ph6-l pt4 pb3 pb6-ns f5 fw3 lh-title"
+        itemscope
+        itemtype="http://schema.org/Person">
+        <div class="w-50-ns pr4-ns mb5 mb0-ns pb0-ns pv3-ns">
+          <h1 class="mt4 mt0-ns mb3 f2 f1-l fw4"
+            itemprop="name">Theo Pak</h1>
+          <p class="mb3 f4 f3-m f2-l">
+            I’m a <span itemprop="jobTitle">software engineer</span> at <span itemscope itemtype="http://schema.org/Organization"><span itemprop="name">Cimpress-Vistaprint</span></span> in the Boston area
+          </p>
+          <p class="mb3 f4 f3-m f2-l">
+            I like to make software products that help people do hard things more easily
+          </p>
+          <p class="mb3 f4 f3-m f2-l">
+            Lately my focus is on improving user experience by improving developer experience
+          </p>
+          <p class="mb0 f4">
+            <a href="http://twitter.com/theopak"
+              class="f6 dib pr2 no-underline mid-gray dim">
+              twitter
+            </a>
+            <a href="http://linkedin.com/in/theopak"
+              class="f6 dib pr2 no-underline mid-gray dim">
+              linkedin
+            </a>
+            <a href="https://github.com/theopak"
+              class="f6 dib pr2 no-underline mid-gray dim">
+              github
+            </a>
+          </p>
+        </div>
+        <div class="flex-ns items-center-ns justify-start-ns overflow-hidden w-50-ns h-100-ns pl3-ns tc tl-ns">
+          <img src="theopak-headshot.jpg"
+            alt="Theo Pak"
+            itemprop="image" />
+        </div>
       </div>
     </div>
 
@@ -222,6 +264,81 @@
       ga('create', 'UA-10935216-5', 'auto');
       ga('require', 'linkid', 'linkid.js');
       ga('send', 'pageview');
+    </script>
+
+    <!-- TODO: finish -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="https://unpkg.com/react-parallax-card@0.5.7/dist/umd/react-parallax-card.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script type="text/babel">
+      // WIP don’t h8
+      const targetNode = document.getElementById('me-lol')
+      ReactDOM.render((
+        <ReactParallaxCard.default
+          layerContainerClassName='lh-title black-70 flex layers'
+          tiltMidpoint={0.52}
+          tiltX={0.15}
+          tiltY={0.12}>
+          <div className='card-bg' />
+          <div
+            className='flex-ns items-center-ns justify-end-ns w-50 h-100-ns'
+            style={{ left: 'auto', right: 0 }}>
+            <img src='../docs/theopak-headshot.jpg'
+              alt='Theo Pak'
+              style={{ maxHeight: '100%' }}
+              itemprop="image" />
+          </div>
+          <div className='w-50-ns h-100-ns pt5 f4 f3-m f2-l' style={{ left: 0 }}>
+            <div className='dib mt0 mb3'>
+              <p className='bg-light-yellow text-line'>
+                I’m a <span itemprop='jobTitle'>software engineer</span> at <span itemscope itemtype='http://schema.org/Organization'><span itemprop='name'>Cimpress-Vistaprint</span></span> in the Boston area
+              </p>
+            </div>
+            <div className='dib mt0 mb3'>
+              <p className='bg-light-yellow text-line'>
+                I like to make software products that help people do hard things more easily
+              </p>
+            </div>
+            <div className='dib mt0 mb3'>
+              <p className='bg-light-yellow text-line'>
+                Lately my focus is on improving user experience by improving developer experience
+              </p>
+            </div>
+            <p className='mv0 f4'>
+              <a href='http://twitter.com/theopak'
+                className='f6 dib pr2 no-underline mid-gray dim'>
+                twitter
+              </a>
+              <a href='http://linkedin.com/in/theopak'
+                className='f6 dib pr2 no-underline mid-gray dim'>
+                linkedin
+              </a>
+              <a href='https://github.com/theopak'
+                className='f6 dib pr2 no-underline mid-gray dim'>
+                github
+              </a>
+            </p>
+          </div>
+          <h1 className='mv0 f2 f1-l fw4' itemprop='name' style={{ left: 0 }}>Theo Pak</h1>
+          {/*
+          <div
+            className='flex-ns items-center-ns justify-end-ns w-50 h-100'
+            style={{ left: 'auto', right: 0 }}>
+            <img
+              src='noun_132894_cc.svg'
+              style={{
+                position: 'absolute',
+                width: 75,
+                left: 'auto',
+                right: '29%',
+                top: '22%'
+              }} />
+          </div>
+          */}
+        </ReactParallaxCard.default>
+      ), targetNode)
     </script>
 
   </body>
