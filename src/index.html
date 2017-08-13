@@ -272,9 +272,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>
     <script src="https://unpkg.com/react-parallax-card@0.5.7/dist/umd/react-parallax-card.js"></script>
     <script type="text/babel">
-      // WIP don’t h8
-      const targetNode = document.getElementById('me-lol')
-      ReactDOM.render((
+      const infoCard = (
         <ReactParallaxCard.default
           layerContainerClassName='lh-title black-70 flex layers'
           tiltMidpoint={0.52}
@@ -337,7 +335,11 @@
           </div>
           */}
         </ReactParallaxCard.default>
-      ), targetNode)
+      )
+
+      // WIP don’t h8
+      const targetNode = document.getElementById('me-lol')
+      ReactDOM.render(infoCard, targetNode)
     </script>
 
   </body>
