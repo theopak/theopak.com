@@ -13,8 +13,8 @@
     "build": "gulp minify"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-htmlmin": "^3.0.0"
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1"
   }
 }
