@@ -63,14 +63,14 @@
         <div class="w-50-ns pr4-ns mb5 mb0-ns pb0-ns pv3-ns">
           <h1 class="mt4 mt0-ns mb3 f2 f1-l fw4"
             itemprop="name">Theo Pak</h1>
-          <p class="mb3 f4 f3-m f2-l">
-            I’m a <span itemprop="jobTitle">senior software engineer</span> at <span itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Hubspot</span></span>
+          <p class="mb3 f4 f3-m f2-l" itemprop="jobTitle">
+            senior software engineer
           </p>
           <p class="mb3 f4 f3-m f2-l">
             I care about building great products with inclusive teams
           </p>
           <p class="mb3 f4 f3-m f2-l">
-            Lately my focus is on React and Javascript
+            lately my focus is on React and Javascript
           </p>
           <p class="mb0 f4">
             <a href="https://twitter.com/theopak"
@@ -183,7 +183,7 @@
         </span>
         <span class="db man lh-copy f6 f5-ns fw4">
           In 2017 I co-designed and built the Cimpress-Vistaprint Developer Portal and billing frontend, and helped it grow to include hundreds of microservices.
-        </span ÷  
+        </span>
       </a>
       <a href="https://github.com/Cimpress-MCP/swagger-ui-cimpress"
         class="w-100 h5 bg-near-black light-blue bg-animate hover-bg-purple f3 f2-l db pa4 pv5-l no-underline">
@@ -288,17 +288,19 @@
           tiltY={0.12}>
           <div className='card-bg' />
           <div
-            className='flex-ns items-center-ns justify-end-ns w-50 h-100-ns'
+            className='flex items-end items-center-l justify-end w-50 h-100'
             style={{ left: 'auto', right: 0 }}>
             <img src='theopak-headshot.jpg'
+              className='w-100 h-auto'
               alt="a really cool bicycle, and also Theo Pak"
-              style={{ maxHeight: '100%' }}
+              width={1200}
+              height={1597}
               itemprop="image" />
           </div>
-          <div className='w-50-ns h-100-ns pt5 f4 f3-m f2-l' style={{ left: 0 }}>
+          <div className='w-50-l h-100-l pt5 f4 f3-m f2-l' style={{ left: 0 }}>
             <div className='dib mt0 mb3'>
               <p className='bg-light-yellow text-line'>
-                I’m a senior software engineer at Hubspot
+                senior software engineer
               </p>
             </div>
             <div className='dib mt0 mb3'>
@@ -308,7 +310,7 @@
             </div>
             <div className='dib mt0 mb3'>
               <p className='bg-light-yellow text-line'>
-                Lately my focus is on React and Javascript
+                lately my focus is on React and Javascript
               </p>
             </div>
             <p className='mv0 f4'>
@@ -327,21 +329,6 @@
             </p>
           </div>
           <h1 className='mv0 f2 f1-l fw4' itemprop='name' style={{ left: 0 }}>Theo Pak</h1>
-          {/*
-          <div
-            className='flex-ns items-center-ns justify-end-ns w-50 h-100'
-            style={{ left: 'auto', right: 0 }}>
-            <img
-              src='noun_132894_cc.svg'
-              style={{
-                position: 'absolute',
-                width: 75,
-                left: 'auto',
-                right: '29%',
-                top: '22%'
-              }} />
-          </div>
-          */}
         </ReactParallaxCard.default>
       )
 
