@@ -1,3 +1,1 @@
-# Theo Pak
-
-http://theopak.com
+https://theopak.com

@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* used by LoadingDots */
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.far-away {
+  opacity: 0.8;
+  filter: grayscale(0.8);
+  /* transform: scale(0.97) translate3d(0, 0, -300px); */
+  /* transform-style: preserve-3d; */
+  transition:
+    opacity 200ms ease-out,
+    filter 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  will-change: transform;
+  contain: strict;
+  visibility: hidden;
+
+  /*  2.25rem = 36px @16px/rem */
+  contain-intrinsic-size: 250px 2.25rem;
+
+  /* initial value */
+  transform: translate(0, -2.25rem);
+}
+
+/* TODO: try making the box shadow look more like ░ */
+.window {
+  box-shadow: 1rem 1rem 0 0 rgb(160 160 160 / 40%);
+
+  .overflow-y-scroll {
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(255 255 255 / 20%);
+      border-radius: 0px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgb(255 255 255 / 30%);
+    }
+  }
+
+  /* &::after {
+    content: '░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░';
+    display: block;
+    font-family: var(--font-BerkelyMono);
+  } */
+}
+
+/* styles for posts */
+.window {
+  a {
+    @apply text-blue-500 hover:underline;
+  }
+  table {
+    @apply w-full table-auto text-sm border;
+  }
+  th {
+    @apply border-b font-medium;
+  }
+  p > code,
+  td > code {
+    @apply px-1 text-xs whitespace-break-spaces bg-gray-600 rounded-sm;
+  }
+}

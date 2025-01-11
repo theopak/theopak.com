@@ -1,11 +1,18 @@
+/.next/
+/node_modules
+/out/
+*.pem
+*.tsbuildinfo
 .DS_Store
-*.sublime-project
-*.sublime-workspace
-*.scssc
-*.sassc
-*.bak
+.env*
+.vercel
+certificates
+next-env.d.ts
+out
 
-npm-debug.log
-node_modules/
-dist/
-.publish/
+# my source content is offline-only
+headshot.avif
+/_posts/
+
+# Developer Font License not for redistribution
+TX-02-Variable.woff2
