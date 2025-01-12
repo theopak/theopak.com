@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import { use, useState, type ReactNode } from "react";
-import { Rnd } from "react-rnd";
-import type { Grid, Props as RndProps } from "react-rnd";
-import { WindowContext } from "./WindowContext";
-import { getFormattedTime } from "./getFormattedTime";
+import { use, useState, type ReactNode } from 'react';
+import { Rnd } from 'react-rnd';
+import type { Grid, Props as RndProps } from 'react-rnd';
+import { WindowContext } from './WindowContext';
+import { getFormattedTime } from './getFormattedTime';
+import Scrollbar from 'react-scrollbars-custom';
 
 const DRAG_GRID = [16, 16] as Grid;
 
@@ -14,7 +15,7 @@ type Props = {
   id: string;
   isPrimary?: boolean | null;
   title?: string | null;
-} & Omit<RndProps, "default">;
+} & Omit<RndProps, 'default'>;
 
 export function Window({
   children,
@@ -32,8 +33,9 @@ export function Window({
   return (
     <Rnd
       resizeGrid={DRAG_GRID}
-      className="bg-black border border-white overflow-hidden font-sans window"
+      className="bg-gray-900 border border-white overflow-hidden font-sans"
       dragHandleClassName="cursor-move"
+      maxWidth={880}
       minHeight={200}
       minWidth={200}
       onMouseDown={isPrimary ? undefined : () => setOpen(id)}
@@ -59,7 +61,7 @@ export function Window({
         })
       }
       style={{
-        boxShadow: isPrimary ? undefined : "none",
+        boxShadow: isPrimary ? undefined : 'none',
         opacity: isPrimary ? undefined : 0.4,
         zIndex: z,
       }}
@@ -67,7 +69,7 @@ export function Window({
     >
       <div
         className="flex flex-col h-full overflow-hidden"
-        role={isPrimary ? "main" : undefined}
+        role={isPrimary ? 'main' : undefined}
         aria-labelledby={elementId}
       >
         <div className="text-bold flex justify-between">
@@ -89,24 +91,32 @@ export function Window({
             </Tooltip>*/}
         </div>
         {isPrimary && (
-          <div className="flex-grow flex flex-col space-between px-4 py-2 space-y-2 leading-relaxed overflow-scroll">
-            {typeof children === "function" ? children() : children}
-            <div
-              className="flex-grow space-y-2 leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-            {date && (
-              <div className="w-full py-2 pt-8 overflow-y-hidden">
-                <div className="font-mono text-xs text-gray-400 text-nowrap">
-                  <span className="select-none">{`░░ `}</span>
-                  {`PUBLISHED ${getFormattedTime(date, false)}`}
-                  <span className="select-none">
-                    {` ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░`}
-                  </span>
+          <Scrollbar
+            className="window"
+            disableTracksWidthCompensation={true}
+            noDefaultStyles={true}
+            removeTrackXWhenNotUsed={true}
+            scrollbarWidth={8}
+          >
+            <div className="flex-grow flex flex-col space-between px-4 py-2 space-y-2 leading-relaxed">
+              {typeof children === 'function' ? children() : children}
+              <div
+                className="flex-grow space-y-2 leading-relaxed overflow-hidden"
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
+              {date && (
+                <div className="w-full py-2 pt-8 overflow-y-hidden">
+                  <div className="font-mono text-xs text-gray-400 text-nowrap">
+                    <span className="select-none">{`░░ `}</span>
+                    {`PUBLISHED ${getFormattedTime(date, false)}`}
+                    <span className="select-none">
+                      {` ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░`}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          </Scrollbar>
         )}
       </div>
     </Rnd>

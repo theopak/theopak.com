@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useOthers } from "@liveblocks/react";
-import { Cursor } from "./Cursor";
+import { useOthers } from '@liveblocks/react';
+import { Cursor } from './Cursor';
 
 const COLORS = [
-  "#E57373",
-  "#9575CD",
-  "#4FC3F7",
-  "#81C784",
-  "#FFF176",
-  "#FF8A65",
-  "#F06292",
-  "#7986CB",
+  '#E57373',
+  '#9575CD',
+  '#4FC3F7',
+  '#81C784',
+  '#FFF176',
+  '#FF8A65',
+  '#F06292',
+  '#7986CB',
 ] as const;
 
 export default function CursorManager() {

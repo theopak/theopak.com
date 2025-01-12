@@ -1,8 +1,8 @@
-import { useUpdateMyPresence } from "@liveblocks/react/suspense";
-import { useRef, useEffect } from "react";
+import { useUpdateMyPresence } from '@liveblocks/react/suspense';
+import { useRef, useEffect } from 'react';
 
 export function Cursor({
-  color = "red",
+  color = 'red',
   x,
   y,
 }: {
@@ -12,7 +12,7 @@ export function Cursor({
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const updateMyPresence = useUpdateMyPresence();
-  const isMe = typeof x === "undefined" && typeof y === "undefined";
+  const isMe = typeof x === 'undefined' && typeof y === 'undefined';
 
   useEffect(() => {
     const onPointerMove = (event: PointerEvent) => {
@@ -26,12 +26,12 @@ export function Cursor({
     };
 
     if (isMe) {
-      window.addEventListener("pointermove", onPointerMove);
-      window.addEventListener("pointerleave", onPointerLeave);
+      window.addEventListener('pointermove', onPointerMove);
+      window.addEventListener('pointerleave', onPointerLeave);
     }
     return () => {
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerleave", onPointerLeave);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerleave', onPointerLeave);
     };
   }, [isMe, updateMyPresence]);
 
@@ -42,7 +42,7 @@ export function Cursor({
       style={
         isMe
           ? undefined
-          : { transform: `translate(${x}px, ${y}px)`, visibility: "visible" }
+          : { transform: `translate(${x}px, ${y}px)`, visibility: 'visible' }
       }
     >
       <svg
@@ -54,11 +54,11 @@ export function Cursor({
       >
         <path
           d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19841L11.7841 12.3673H5.65376Z"
-          stroke={isMe ? "transparent" : color}
-          fill={isMe ? color : "transparent"}
+          stroke={isMe ? 'transparent' : color}
+          fill={isMe ? color : 'transparent'}
         />
       </svg>
-      {`${"\xA0"}Anonymous live user`}
+      {`${'\xA0'}Anonymous live user`}
     </div>
   );
 }

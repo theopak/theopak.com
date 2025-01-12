@@ -1,9 +1,9 @@
 export function LoadingDots() {
   const style = {
     animationDuration: `${900}ms`,
-    animationTimingFunction: "steps(4, end)",
-    animationIterationCount: "infinite",
-    animationName: "appear",
+    animationTimingFunction: 'steps(4, end)',
+    animationIterationCount: 'infinite',
+    animationName: 'appear',
     opacity: 0,
   } as const;
 

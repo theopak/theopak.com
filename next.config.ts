@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: "export",
+  output: 'export',
   images: {
     unoptimized: true,
   },
@@ -13,9 +13,9 @@ const nextConfig: NextConfig = {
     scrollRestoration: true,
     turbo: {
       rules: {
-        "*.glsl": {
-          as: "*.js",
-          loaders: ["ts-shader-loader"],
+        '*.glsl': {
+          as: '*.js',
+          loaders: ['ts-shader-loader'],
         },
       },
     },
@@ -28,7 +28,7 @@ const nextConfig: NextConfig = {
   },
   webpack: (config) => {
     config.module.rules.push({
-      loader: "ts-shader-loader",
+      loader: 'ts-shader-loader',
       test: /\.glsl/,
     });
     return config;

@@ -2,9 +2,9 @@
 const postcssConfig = {
   plugins: {
     tailwindcss: {},
-    "postcss-nesting": {},
+    'postcss-nesting': {},
     autoprefixer: {},
   },
-}
+};
 
 export default postcssConfig;

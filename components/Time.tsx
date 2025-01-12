@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
-import { getFormattedTime } from "./getFormattedTime";
-import { LoadingDots } from "./LoadingDots";
+import { useEffect, useRef } from 'react';
+import { getFormattedTime } from './getFormattedTime';
+import { LoadingDots } from './LoadingDots';
 
 export function Time() {
   const refForRaf = useRef<number | null>(null);
@@ -13,7 +13,7 @@ export function Time() {
       if (refForElement.current && refForIsReady.current) {
         refForElement.current.textContent = getFormattedTime();
         refForIsReady.current =
-          window?.matchMedia("(prefers-reduced-motion: reduce)")?.matches !==
+          window?.matchMedia('(prefers-reduced-motion: reduce)')?.matches !==
           true;
       }
       raf = requestAnimationFrame(updateClock);

@@ -1,15 +1,16 @@
-"use client";
+'use client';
 
-import { WindowContext } from "./WindowContext";
-import { Window } from "./Window";
-import { contentByPid } from "./contentByPid";
-import { use } from "react";
+import { use } from 'react';
+import type { getAllPostsMetadata } from '../lib/api';
+import { WindowContext } from './WindowContext';
+import { Window } from './Window';
 
 type Props = {
+  posts?: Awaited<ReturnType<typeof getAllPostsMetadata>> | null;
   primaryPost?: { id: string; date: Date; html: string; title: string };
 };
 
-export function WindowManager({ primaryPost }: Props) {
+export function WindowManager({ posts, primaryPost }: Props) {
   const { openWindows } = use(WindowContext);
   const postsToRender = primaryPost
     ? [...openWindows.entries()].slice(0, -1)
@@ -24,12 +25,10 @@ export function WindowManager({ primaryPost }: Props) {
           <Window
             key={id}
             {...value}
-            title={contentByPid[id]?.title}
             {...other}
+            title={posts?.[id]?.title}
             isPrimary={isClientSidePrimary}
-          >
-            {isClientSidePrimary ? null : contentByPid[id]?.children}
-          </Window>
+          />
         );
       })}
       {primaryPost && (

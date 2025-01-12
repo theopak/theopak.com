@@ -1,30 +1,34 @@
-import type { Metadata } from "next";
-import { getPost, getAllPosts } from "../../../lib/api";
-import { WindowManager } from "../../../components/WindowManager";
+import type { Metadata } from 'next';
+import { getPost, getAllPostsMetadata } from '../../../lib/api';
+import { WindowManager } from '../../../components/WindowManager';
 
 export default async function PageForPost({ params }) {
   const { id } = await params;
+  const posts = await getAllPostsMetadata();
   const post = await getPost(`${id}.md`);
-  return <WindowManager primaryPost={post} />;
+  return <WindowManager posts={posts} primaryPost={post} />;
 }
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const { id } = await params;
   const { date, title } = await getPost(`${id}.md`);
   return {
-    title,
-    authors: { name: "Theo Pak", url: "https://theopak.com" },
-    openGraph: {
-      type: "article",
-      title,
-      publishedTime: date.toUTCString(),
+    authors: {
+      name: 'Theo Pak',
+      url: 'https://theopak.com',
     },
+    openGraph: {
+      publishedTime: date.toUTCString(),
+      title,
+      type: 'article',
+    },
+    title,
   };
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({
+  const posts = await getAllPostsMetadata();
+  return Object.values(posts).map((post) => ({
     id: post.id,
   }));
 }

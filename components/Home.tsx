@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React from "react";
-import { LiveblocksProvider, RoomProvider } from "@liveblocks/react";
-import Asdf from "./Asdf";
-import CursorManager from "./CursorManager";
+import React from 'react';
+import { LiveblocksProvider, RoomProvider } from '@liveblocks/react';
+import Asdf from './Asdf';
+import CursorManager from './CursorManager';
 
-export default function Home() {
+export default function Home(props) {
   return (
     <LiveblocksProvider
       publicApiKey={process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY!}
@@ -16,7 +16,7 @@ export default function Home() {
         id="theo"
         initialPresence={{ cursor: null }}
       >
-        <Asdf />
+        <Asdf {...props} />
         <CursorManager />
       </RoomProvider>
     </LiveblocksProvider>

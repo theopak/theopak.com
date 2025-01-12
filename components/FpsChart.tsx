@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import type { JSX } from "react";
-import { useMemo } from "react";
-import { useFps } from "react-fps";
-import { LoadingDots } from "./LoadingDots";
+import type { JSX } from 'react';
+import { useMemo } from 'react';
+import { useFps } from 'react-fps';
+import { LoadingDots } from './LoadingDots';
 
 export function FpsChart({ height = 20, width = 280 }) {
   const { avgFps, currentFps, fps, maxFps } = useFps(width);
@@ -17,15 +17,15 @@ export function FpsChart({ height = 20, width = 280 }) {
       const h = (value / maxFps) * height || height;
       const w = 2;
       const gap = 1;
-      let filterName = "";
+      let filterName = '';
       if (!value) {
-        filterName = "url(#green-t-grey)";
+        filterName = 'url(#green-t-grey)';
       } else if (value > 50) {
-        filterName = "";
+        filterName = '';
       } else if (value > 30) {
-        filterName = "url(#green-to-yellow)";
+        filterName = 'url(#green-to-yellow)';
       } else {
-        filterName = "url(#green-to-red)";
+        filterName = 'url(#green-to-red)';
       }
       const bar = (
         <rect
@@ -48,7 +48,7 @@ export function FpsChart({ height = 20, width = 280 }) {
       <div className="relative">
         <div
           className="bg-black inline absolute px-1 text-xs"
-          style={{ top: "-1.1rem" }}
+          style={{ top: '-1.1rem' }}
         >
           PERFORMANCE MONITOR
         </div>

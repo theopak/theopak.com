@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import type { PropsWithChildren } from "react";
-import { createContext, useCallback, useMemo, useState } from "react";
-import type { Position, ResizableDelta, Props as RndProps } from "react-rnd";
+import { useRouter } from 'next/navigation';
+import type { PropsWithChildren } from 'react';
+import { createContext, useCallback, useMemo, useState } from 'react';
+import type { Position, ResizableDelta, Props as RndProps } from 'react-rnd';
 
 type WindowState = { id: string } & Required<
-  Pick<RndProps, "position" | "size">
+  Pick<RndProps, 'position' | 'size'>
 >;
 
 type OpenWindows = Map<string, WindowState>;
@@ -20,7 +20,7 @@ export const WindowContext = createContext({
 });
 
 export function getPostId() {
-  return typeof window === "undefined"
+  return typeof window === 'undefined'
     ? undefined
     : window.location.pathname.match(/\/posts\/([\w-_]+)(\?)?/i)?.[1];
 }
@@ -51,7 +51,7 @@ export function getDefaultValues(lastValue?: WindowState) {
 
 function readUrlState() {
   const url =
-    typeof window === "undefined" ? undefined : new URL(window.location.href);
+    typeof window === 'undefined' ? undefined : new URL(window.location.href);
   const postId = getPostId();
   const stateAsSearchParams = url?.searchParams || new URLSearchParams();
   const state: OpenWindows = new Map();
@@ -80,7 +80,7 @@ export function WindowContextProvider({
   const replaceUrlState = useCallback(
     (state: OpenWindows) => {
       const stateAsSearchParams = new URLSearchParams();
-      let lastId = "";
+      let lastId = '';
       state.forEach((value, key) => {
         stateAsSearchParams.set(key, JSON.stringify(value));
         lastId = key;
@@ -89,7 +89,7 @@ export function WindowContextProvider({
       url.pathname = `/posts/${lastId}`;
       url.search = stateAsSearchParams.toString();
       if (lastId === getPostId()) {
-        window.history.replaceState(null, "", url);
+        window.history.replaceState(null, '', url);
       } else {
         setTimeout(() => push(url.toString()), 0);
       }
@@ -120,10 +120,10 @@ export function WindowContextProvider({
       setOpenWindows((prev) => {
         const next = new Map(prev);
         const updates: Partial<WindowState> = { id };
-        if ("size" in data) {
+        if ('size' in data) {
           updates.size = data.size;
         }
-        if ("position" in data) {
+        if ('position' in data) {
           updates.position = data.position;
         }
         // @ts-expect-error TODO: fix types

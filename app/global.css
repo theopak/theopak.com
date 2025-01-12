@@ -41,37 +41,21 @@ body {
   transform: translate(0, -2.25rem);
 }
 
+/* styles for posts */
 /* TODO: try making the box shadow look more like ░ */
 .window {
   box-shadow: 1rem 1rem 0 0 rgb(160 160 160 / 40%);
-
-  .overflow-y-scroll {
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: rgb(255 255 255 / 20%);
-      border-radius: 0px;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background: rgb(255 255 255 / 30%);
-    }
-  }
-
-  /* &::after {
-    content: '░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░';
-    display: block;
-    font-family: var(--font-BerkelyMono);
-  } */
-}
-
-/* styles for posts */
-.window {
   a {
     @apply text-blue-500 hover:underline;
+  }
+  h1 {
+    @apply pt-6 font-mono font-semibold text-lg;
+  }
+  ul {
+    @apply pb-1 pl-6 list-inside list-disc;
+  }
+  ol {
+    @apply pb-1 pl-6 list-inside list-decimal;
   }
   table {
     @apply w-full table-auto text-sm border;
@@ -82,5 +66,112 @@ body {
   p > code,
   td > code {
     @apply px-1 text-xs whitespace-break-spaces bg-gray-600 rounded-sm;
+  }
+  section[data-footnotes] {
+    h2 {
+      @apply hidden;
+    }
+    ol {
+      @apply p-0  list-inside list-none;
+      li {
+        @apply pt-2 pl-8;
+        &:first-of-type {
+          counter-reset: list 0;
+        }
+        &::marker {
+          @apply hidden;
+        }
+        &::before {
+          @apply inline-block w-7 font-mono text-sm;
+          content: "[" counter(list) "]";
+          counter-increment: list;
+          margin-left: -2rem;
+        }
+        p {
+          @apply inline;
+        }
+      }
+    }
+  }
+}
+
+/* custom scrollbars */
+div,
+table {
+  .ScrollbarsCustom {
+    width: 100%;
+    height: 100%;
+
+    .ScrollbarsCustom-Wrapper {
+      @apply top-0 right-0 bottom-0 left-0;
+    }
+
+    .ScrollbarsCustom-Track {
+      @apply absolute px-2;
+      &:hover .ScrollbarsCustom-Thumb {
+        @apply bg-gray-200;
+      }
+    }
+
+    .ScrollbarsCustom-TrackX {
+      @apply h-2 w-full bg-gray-800 bottom-0 left-0;
+    }
+
+    .ScrollbarsCustom-TrackY {
+      @apply h-full w-2 py-6 bg-gray-800 top-0 right-0;
+      &::before {
+        @apply w-full absolute top-0 right-0 text-center leading-6 font-mono text-gray-400;
+        content: "↑";
+      }
+      &::after {
+        @apply w-full absolute bottom-0 right-0 text-center leading-6 font-mono text-gray-400;
+        content: "↓";
+      }
+    }
+
+    .ScrollbarsCustom-Thumb {
+      @apply bg-gray-400 cursor-pointer;
+
+      &:hover,
+      &.dragging {
+        @apply bg-gray-200;
+      }
+    }
+
+    .ScrollbarsCustom-ThumbY {
+      @apply w-2 relative right-1;
+    }
+
+    .ScrollbarsCustom-ThumbX {
+      @apply h-full;
+    }
+
+    &.trackYVisible {
+      & > .ScrollbarsCustom-Wrapper {
+        right: 1.5rem;
+      }
+
+      & > .ScrollbarsCustom-TrackX {
+        width: calc(100% - 4rem);
+        left: 2rem;
+      }
+    }
+
+    &.trackXVisible {
+      &:hover {
+        .ScrollbarsCustom-TrackX {
+          background: #373737;
+        }
+
+        .ScrollbarsCustom-ThumbX {
+          background: #4f4f4f;
+
+          &:hover,
+          &.dragging {
+            background: #9ed6ff;
+          }
+        }
+      }
+    }
   }
 }

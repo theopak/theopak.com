@@ -5,19 +5,17 @@ float sinNorm(float val) {
 }
 
 float str(float ratio, float toff) {
-    return sinNorm((toff) * PI * ratio);
+    return sinNorm(toff * PI * ratio);
 }
 
 float moire(vec2 uv, float phase) {
     float toff = phase;
 
-    // Modified center points for more parallel-line-like behavior
     vec2 center1 = vec2(str(1.0, toff) * 0.5, str(1.3, toff) * 0.3) + vec2(0.5, 0.5);
     vec2 center2 = vec2(str(0.2, toff) * 0.2, str(0.1, toff) * 0.4) - vec2(0.5, 0.5);
     vec2 center3 = vec2(str(2.0, toff) * 0.3, str(1.0, toff) * 0.35) + vec2(0.5, 0.5);
     vec2 center4 = vec2(str(1.0, toff) * 1.5, str(0.2, toff)) - vec2(0.5, 0.5);
 
-    // Adjusted pattern to create more parallel lines
     float angle1 = atan(uv.y - center1.y, uv.x - center1.x);
     float angle2 = atan(uv.y - center2.y, uv.x - center2.x);
 
@@ -36,7 +34,9 @@ float moire(vec2 uv, float phase) {
     return c;
 }
 
-// adapted from https://www.shadertoy.com/view/lsGSDw
+/**
+ * adapted from https://www.shadertoy.com/view/lsGSDw
+ */
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
 
@@ -49,9 +49,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         c = max(c, moire(uv, p1 * 0.25) * sin(p1 * PI));
     }
 
-    // Define subtle near-black and near-white colors
-    vec3 nearBlack = vec3(0.28, 0.28, 0.29); // Very dark gray with slight blue tint
-    vec3 nearWhite = vec3(0.76, 0.76, 0.75); // Very light gray with slight warm tint
+    // two-color pattern
+    vec3 nearBlack = vec3(0.28, 0.28, 0.29);
+    vec3 nearWhite = vec3(0.76, 0.76, 0.75);
 
     // fade-in
     float fadeInDuration = 0.750;
@@ -59,8 +59,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // interpolate color based on pattern and fade progress
     vec3 color = mix(nearBlack, nearWhite, c);
-    vec3 colorOut = mix(nearBlack, color, fadeInProgress);
+    color = mix(nearBlack, color, fadeInProgress);
 
     // output
-    fragColor = vec4(colorOut, 1.0);
+    fragColor = vec4(color, 1.0);
 }

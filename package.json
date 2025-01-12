@@ -14,9 +14,6 @@
   "dependencies": {
     "@liveblocks/client": "2.15.2",
     "@liveblocks/react": "2.15.2",
-    "@react-spring/three": "9.7.0-beta.0",
-    "@react-three/drei": "9.0.0-beta.6",
-    "@react-three/fiber": "rc",
     "autoprefixer": "10.4.20",
     "gray-matter": "4.0.3",
     "next": "15.1.4",
@@ -24,6 +21,7 @@
     "react-dom": "19.0.0",
     "react-fps": "1.0.6",
     "react-rnd": "10.4.14",
+    "react-scrollbars-custom": "4.1.1",
     "react-shaders": "0.0.4",
     "rehype-add-classes": "1.0.0",
     "rehype-autolink-headings": "7.1.0",
@@ -37,7 +35,6 @@
     "remark-parse": "11.0.0",
     "remark-rehype": "11.1.1",
     "shiki": "1.26.1",
-    "three": "0.172.0",
     "unified": "11.0.5"
   },
   "devDependencies": {
@@ -48,7 +45,6 @@
     "@types/node": "~22.10.5",
     "@types/react": "~19.0.2",
     "@types/react-dom": "~19.0.2",
-    "@types/three": "~0.172.0",
     "@typescript-eslint/eslint-plugin": "8.19.1",
     "@typescript-eslint/parser": "8.19.1",
     "eslint": "9.18.0",

@@ -1,27 +1,18 @@
-import type { Config } from "tailwindcss";
-// import { BerkeleyMono } from "./app/layout.tsx";
+import type { Config } from 'tailwindcss';
 
 const tailwindConfig: Config = {
-  // corePlugins: {
-  //   preflight: false,
-  // },
-  content: [
-    "./app/**/*.{ts,tsx,mdx}",
-    "./components/**/*.{ts,tsx,mdx}",
-  ],
+  content: ['./app/**/*.{ts,tsx,mdx}', './components/**/*.{ts,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
       },
       fontFamily: {
-        mono: ["var(--font-BerkeleyMono)"],
-        // mono: [`var(${BerkeleyMono.variable})`],
+        mono: ['var(--font-BerkeleyMono)'],
       },
     },
   },
-  plugins: [],
 };
 
 export default tailwindConfig;

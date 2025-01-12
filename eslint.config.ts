@@ -1,4 +1,4 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import { FlatCompat } from '@eslint/eslintrc';
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -6,20 +6,26 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   {
-    ignores: [".next", ".vercel", "certificates", "node_modules", "out"],
+    ignores: ['.next', '.vercel', 'certificates', 'node_modules', 'out'],
   },
   ...compat.config({
-    extends: ["next/core-web-vitals", "next/typescript", "prettier"],
+    extends: [
+      'next/core-web-vitals',
+      'next/typescript',
+      'eslint-config-prettier',
+    ],
+    plugins: ['eslint-plugin-prettier', 'eslint-plugin-simple-import-sort'],
     rules: {
-      "@next/next/no-img-element": "off",
-      "@typescript-eslint/no-empty-object-type": [
-        "error",
-        { allowInterfaces: "with-single-extends" },
+      '@next/next/no-img-element': 'off',
+      '@typescript-eslint/no-empty-object-type': [
+        'error',
+        { allowInterfaces: 'with-single-extends' },
       ],
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^__", varsIgnorePattern: "^__" },
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^__', varsIgnorePattern: '^__' },
       ],
+      'prettier/prettier': ['error', { singleQuote: true }],
     },
   }),
 ];
