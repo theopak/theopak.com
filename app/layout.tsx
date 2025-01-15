@@ -1,6 +1,6 @@
 import './global.css';
 import type { PropsWithChildren } from 'react';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import LocalFont from 'next/font/local';
 import Home from '../components/Home';
 import { WindowContextProvider } from '../components/WindowContext';
@@ -12,10 +12,25 @@ const BerkeleyMono = LocalFont({
 });
 
 export const metadata: Metadata = {
+  formatDetection: {
+    address: false,
+    date: false,
+    email: false,
+    telephone: false,
+  },
   title: {
     default: 'Theo Pak Homepage',
     template: '%s — Theo Pak',
   },
+};
+
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: 'black',
+  userScalable: false,
+  width: 'device-width',
 };
 
 export default async function RootLayout({ children }: PropsWithChildren) {

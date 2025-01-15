@@ -25,7 +25,10 @@ const eslintConfig = [
         'error',
         { argsIgnorePattern: '^__', varsIgnorePattern: '^__' },
       ],
+      'import/order': 'off',
       'prettier/prettier': ['error', { singleQuote: true }],
+      'simple-import-sort/exports': 'error',
+      'sort-imports': 'off',
     },
   }),
 ];

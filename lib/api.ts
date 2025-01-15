@@ -10,7 +10,6 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeCodeTitles from 'rehype-code-titles';
-// import rehypeAddClasses from "rehype-add-classes";
 import rehypeRaw from 'rehype-raw';
 // import rehypeSanitize from "rehype-sanitize";
 

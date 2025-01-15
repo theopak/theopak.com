@@ -5,16 +5,28 @@ float sinNorm(float val) {
 }
 
 float str(float ratio, float toff) {
-    return sinNorm(toff * PI * ratio);
+    return sinNorm(toff * 2.0 * PI * ratio);
 }
 
 float moire(vec2 uv, float phase) {
     float toff = phase;
+    float radius = 0.0; // Radius of the circular motion
 
-    vec2 center1 = vec2(str(1.0, toff) * 0.5, str(1.3, toff) * 0.3) + vec2(0.5, 0.5);
+    // Get normalized mouse position
+    vec2 mousePos = iMouse.xy / iResolution.xy;
+    // If mouse hasn't been clicked yet, use center position
+    mousePos = iMouse.z < 0.5 ? vec2(0.5, 0.5) : mousePos;
+
+    // Center1 now moves in a circle around the mouse position
+    vec2 center1 = vec2(
+            cos(toff * 2.0 * PI) * radius + mousePos.x,
+            sin(toff * 2.0 * PI) * radius + mousePos.y
+        );
+
+    // vec2 center1 = vec2(str(1.0, toff) * 0.5, str(1.3, toff) * 0.3) + vec2(0.5, 0.5);
     vec2 center2 = vec2(str(0.2, toff) * 0.2, str(0.1, toff) * 0.4) - vec2(0.5, 0.5);
-    vec2 center3 = vec2(str(2.0, toff) * 0.3, str(1.0, toff) * 0.35) + vec2(0.5, 0.5);
-    vec2 center4 = vec2(str(1.0, toff) * 1.5, str(0.2, toff)) - vec2(0.5, 0.5);
+    // vec2 center3 = vec2(str(2.0, toff) * 0.3, str(1.0, toff) * 0.35) + vec2(0.5, 0.5);
+    // vec2 center4 = vec2(str(1.0, toff) * 1.5, str(0.2, toff)) - vec2(0.5, 0.5);
 
     float angle1 = atan(uv.y - center1.y, uv.x - center1.x);
     float angle2 = atan(uv.y - center2.y, uv.x - center2.x);
@@ -22,14 +34,16 @@ float moire(vec2 uv, float phase) {
     float patternScale = 150.0 * DPR;
     float dist1 = length(uv - center1) * patternScale + angle1 * 5.0;
     float dist2 = length(uv - center2) * patternScale + angle2 * 5.0;
-    float dist3 = length(uv - center3) * patternScale;
-    float dist4 = length(uv - center4) * patternScale;
+    // float dist3 = length(uv - center3) * patternScale;
+    // float dist4 = length(uv - center4) * patternScale;
 
     float c = sinNorm(dist1 + 1.5 * sinNorm(dist2));
-    float c2 = sinNorm(dist3 + sinNorm(dist4));
+    // float c2 = sinNorm(dist3 + sinNorm(dist4));
 
-    float cavg = (c + c2) * 0.5;
-    c = 1.0 - smoothstep(ceil(min(c, c2) - 0.5), 1.0 - cavg, 0.5);
+    // float cavg = (c + c2) * 0.5;
+    float cavg = c;
+    // c = 1.0 - smoothstep(ceil(min(c, c2) - 0.5), 1.0 - cavg, 0.5);
+    c = 1.0 - smoothstep(ceil(c - 0.5), 1.0 - cavg, 0.5);
 
     return c;
 }

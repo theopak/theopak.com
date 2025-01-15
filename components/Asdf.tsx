@@ -1,14 +1,14 @@
 'use client';
 
-import { use, useEffect, useState } from 'react';
 import { useOthersConnectionIds } from '@liveblocks/react';
-import { FpsChart } from './FpsChart';
-import { Time } from './Time';
-import { WindowContext } from './WindowContext';
-import { Visualizer } from './Visualizer';
-import type { getAllPostsMetadata } from '../lib/api';
-import { getFormattedTime } from './getFormattedTime';
+import { use, useEffect, useState } from 'react';
 import Scrollbar from 'react-scrollbars-custom';
+import type { getAllPostsMetadata } from '../lib/api';
+import { FpsChart } from './FpsChart';
+import { getFormattedTime } from './getFormattedTime';
+import { Time } from './Time';
+import { Visualizer } from './Visualizer';
+import { WindowContext } from './WindowContext';
 
 const formatNumber = new Intl.NumberFormat('en-us').format;
 
@@ -19,7 +19,7 @@ type Props = {
 export default function Asdf({ posts }: Props) {
   const [visits, setVisits] = useState<number | null>(null);
   const others = useOthersConnectionIds();
-  const { openWindows, setOpen } = use(WindowContext);
+  const { setOpen } = use(WindowContext);
 
   const isReducedMotionPreferred =
     typeof window !== 'undefined' &&
@@ -39,9 +39,7 @@ export default function Asdf({ posts }: Props) {
   }, [visits]);
 
   return (
-    <div
-      className={`h-full grid grid-cols-1 md:grid-cols-[24rem_1fr] grid-rows-[4fr_min-content] gap-4 ${openWindows.size > 0 ? 'far-away' : ''}`}
-    >
+    <div className="h-full grid grid-cols-1 md:grid-cols-[24rem_1fr] grid-rows-[4fr_min-content] gap-4">
       <div className="md:col-span-2 border border-green-800 text-green-400 relative">
         <div
           className="absolute inset-0 bg-[rgb(71,71,74)]"
@@ -167,12 +165,10 @@ export default function Asdf({ posts }: Props) {
             POSTS
           </div>
         </div>
-        <div className="h-full overflow-x-hidden overflow-y-scroll md:h-[234px]">
+        <div className="h-full min-h-52 md:h-[234px] overflow-x-hidden overflow-y-scroll">
           <Scrollbar
-            // className="h-full w-full"
-            // noDefaultStyles={true}
+            noDefaultStyles={true}
             disableTracksWidthCompensation={true}
-            permanentTrackY={true}
           >
             <table className="w-full table-auto">
               <thead className="sticky top-0 bg-black">
@@ -184,7 +180,11 @@ export default function Asdf({ posts }: Props) {
               <tbody className="divide-y divide-neutral-800">
                 {posts &&
                   Object.values(posts).map((post) => (
-                    <tr key={post.id} onClick={() => setOpen(post.id)}>
+                    <tr
+                      key={post.id}
+                      className="cursor-pointer hover:bg-gray-800"
+                      onClick={() => setOpen(post.id)}
+                    >
                       <td className="py-1 w-32">
                         {getFormattedTime(post.date, false)}
                       </td>

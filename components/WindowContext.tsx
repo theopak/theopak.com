@@ -2,7 +2,13 @@
 
 import { useRouter } from 'next/navigation';
 import type { PropsWithChildren } from 'react';
-import { createContext, useCallback, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  // useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import type { Position, ResizableDelta, Props as RndProps } from 'react-rnd';
 
 type WindowState = { id: string } & Required<
@@ -138,6 +144,17 @@ export function WindowContextProvider({
     () => ({ openWindows, setOpen, updateWindow }),
     [openWindows, setOpen, updateWindow],
   );
+
+  // useEffect(
+  //   () =>
+  //     setOpenWindows((prev) => {
+  //       const updates = readUrlState();
+  //       console.log("mount effect", updates);
+  //       updates.forEach((update) => prev.set(update.id, update));
+  //       return prev;
+  //     }),
+  //   [],
+  // );
 
   return <WindowContext value={value}>{children}</WindowContext>;
 }

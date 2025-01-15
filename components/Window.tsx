@@ -1,11 +1,12 @@
 'use client';
 
-import { use, useState, type ReactNode } from 'react';
-import { Rnd } from 'react-rnd';
+import type { ReactNode } from 'react';
+import { use } from 'react';
 import type { Grid, Props as RndProps } from 'react-rnd';
+import { Rnd } from 'react-rnd';
+import Scrollbar from 'react-scrollbars-custom';
 import { WindowContext } from './WindowContext';
 import { getFormattedTime } from './getFormattedTime';
-import Scrollbar from 'react-scrollbars-custom';
 
 const DRAG_GRID = [16, 16] as Grid;
 
@@ -27,23 +28,17 @@ export function Window({
   ...rest
 }: Props) {
   const { setOpen, updateWindow } = use(WindowContext);
-  const [z, setZ] = useState(1);
   const elementId = `title-${id}`;
 
   return (
     <Rnd
       resizeGrid={DRAG_GRID}
-      className="bg-gray-900 border border-white overflow-hidden font-sans"
+      className="flex flex-col bg-gray-900 border border-white overflow-hidden font-sans window"
       dragHandleClassName="cursor-move"
       maxWidth={880}
       minHeight={200}
       minWidth={200}
       onMouseDown={isPrimary ? undefined : () => setOpen(id)}
-      onMouseUp={() => {
-        // TODO: fix this
-        // event.target.style.zIndex = 1;
-        setZ(1);
-      }}
       onDragStop={(__event, data) =>
         updateWindow(id, {
           position: {
@@ -61,44 +56,33 @@ export function Window({
         })
       }
       style={{
+        display: 'flex', // HACK: override rnd to match assigned className `flex`
         boxShadow: isPrimary ? undefined : 'none',
         opacity: isPrimary ? undefined : 0.4,
-        zIndex: z,
       }}
       {...rest}
     >
-      <div
-        className="flex flex-col h-full overflow-hidden"
+      <article
+        className="flex-grow flex flex-col h-full overflow-hidden"
         role={isPrimary ? 'main' : undefined}
         aria-labelledby={elementId}
       >
-        <div className="text-bold flex justify-between">
-          <h1
-            id={elementId}
-            className="border-b border-white grow p-2 text-center font-mono font-extrabold truncate cursor-move"
-          >
-            {title}
-          </h1>
-          {/*<Tooltip>
-              <TooltipTrigger>
-                <span className="border-white border-b border-l p-1 w-7 h-7 hover:bg-[#dfdfdf] hover:text-black text-xs">
-                  i
-                </span>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>info</p>
-              </TooltipContent>
-            </Tooltip>*/}
-        </div>
+        <h1
+          id={elementId}
+          className="border-b border-white flex-grow-0 p-2 text-center font-mono font-extrabold truncate cursor-move"
+        >
+          {title}
+        </h1>
         {isPrimary && (
           <Scrollbar
-            className="window"
+            className="flex-grow"
             disableTracksWidthCompensation={true}
             noDefaultStyles={true}
             removeTrackXWhenNotUsed={true}
+            // permanentTrackX={true}
             scrollbarWidth={8}
           >
-            <div className="flex-grow flex flex-col space-between px-4 py-2 space-y-2 leading-relaxed">
+            <div className="flex-grow flex flex-col space-between px-4 py-2 space-y-2 leading-relaxed window--content">
               {typeof children === 'function' ? children() : children}
               <div
                 className="flex-grow space-y-2 leading-relaxed overflow-hidden"
@@ -106,7 +90,7 @@ export function Window({
               />
               {date && (
                 <div className="w-full py-2 pt-8 overflow-y-hidden">
-                  <div className="font-mono text-xs text-gray-400 text-nowrap">
+                  <div className="font-mono text-xs text-gray-400 overflow-hidden text-nowrap">
                     <span className="select-none">{`░░ `}</span>
                     {`PUBLISHED ${getFormattedTime(date, false)}`}
                     <span className="select-none">
@@ -118,7 +102,7 @@ export function Window({
             </div>
           </Scrollbar>
         )}
-      </div>
+      </article>
     </Rnd>
   );
 }

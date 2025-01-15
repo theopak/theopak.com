@@ -1,7 +1,8 @@
 import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const tailwindConfig: Config = {
-  content: ['./app/**/*.{ts,tsx,mdx}', './components/**/*.{ts,tsx,mdx}'],
+  content: ['./app/**/*.{ts,tsx,mdx,mdx}', './components/**/*.{ts,tsx,md,mdx}'],
   theme: {
     extend: {
       colors: {
@@ -9,7 +10,7 @@ const tailwindConfig: Config = {
         foreground: 'var(--foreground)',
       },
       fontFamily: {
-        mono: ['var(--font-BerkeleyMono)'],
+        mono: ['var(--font-BerkeleyMono)', ...defaultTheme.fontFamily.mono],
       },
     },
   },
