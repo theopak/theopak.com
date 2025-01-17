@@ -19,8 +19,7 @@ body {
   filter: grayscale(0.8);
   transition:
     opacity 200ms ease-out,
-    filter 200ms ease-out,
-    transform 200ms ease-out;
+    filter 200ms ease-out;
 }
 
 .cursor {
