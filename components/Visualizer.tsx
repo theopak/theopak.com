@@ -1,7 +1,7 @@
 import { Shader } from 'react-shaders';
-import fragmentShader from './eyebleed.glsl';
+import fragmentShader from './brainsmoother.glsl';
 
-const bgColor = [0.28, 0.28, 0.29, 1.0] as [number, number, number, number];
+const bgColor = [0, 0, 0, 1] as [number, number, number, number];
 
 export function Visualizer() {
   return (
