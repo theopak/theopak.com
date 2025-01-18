@@ -1,7 +1,7 @@
 'use client';
 
 import { useOthersConnectionIds } from '@liveblocks/react';
-import { use, useEffect, useState } from 'react';
+import { use } from 'react';
 import Scrollbar from 'react-scrollbars-custom';
 import type { getAllPostsMetadata } from '../lib/api';
 import { FpsChart } from './FpsChart';
@@ -9,6 +9,7 @@ import { getFormattedTime } from './getFormattedTime';
 import { Time } from './Time';
 import { Visualizer } from './Visualizer';
 import { WindowContext } from './WindowContext';
+import { VisitsCounter } from './VisitsCounter';
 
 const formatNumber = new Intl.NumberFormat('en-us').format;
 
@@ -17,26 +18,12 @@ type Props = {
 };
 
 export default function Asdf({ posts }: Props) {
-  const [visits, setVisits] = useState<number | null>(null);
   const others = useOthersConnectionIds();
   const { setOpen } = use(WindowContext);
 
   const isReducedMotionPreferred =
     typeof window !== 'undefined' &&
     window?.matchMedia('(prefers-reduced-motion: reduce)')?.matches === true;
-
-  useEffect(() => {
-    if (typeof localStorage !== 'undefined') {
-      const prev = parseInt(localStorage.getItem('visits') || '', 10) || 0;
-      setVisits(prev + 1);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof localStorage !== 'undefined' && visits) {
-      localStorage.setItem('visits', visits.toString());
-    }
-  }, [visits]);
 
   return (
     <div className="h-full grid grid-cols-1 md:grid-cols-[24rem_1fr] grid-rows-[4fr_min-content] gap-4">
@@ -157,7 +144,9 @@ export default function Asdf({ posts }: Props) {
             </span>
             <span className="flex justify-between">
               <span>Your visits: </span>
-              <span>{visits ? formatNumber(visits) : '…'}</span>
+              <span>
+                <VisitsCounter />
+              </span>
             </span>
             <span className="flex justify-between">
               <span>Live users: </span>

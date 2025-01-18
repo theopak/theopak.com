@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { getFormattedTime } from './getFormattedTime';
 import { LoadingDots } from './LoadingDots';

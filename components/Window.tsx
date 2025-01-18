@@ -1,12 +1,9 @@
-'use client';
-
 import type { ReactNode } from 'react';
 import { use } from 'react';
 import type { Grid, Props as RndProps } from 'react-rnd';
 import { Rnd } from 'react-rnd';
-import Scrollbar from 'react-scrollbars-custom';
 import { WindowContext } from './WindowContext';
-import { getFormattedTime } from './getFormattedTime';
+import { WindowChild } from './WindowChild';
 
 const DRAG_GRID = [16, 16] as Grid;
 
@@ -74,33 +71,9 @@ export function Window({
           {title}
         </h1>
         {isPrimary && (
-          <Scrollbar
-            className="flex-grow"
-            disableTracksWidthCompensation={true}
-            noDefaultStyles={true}
-            removeTrackXWhenNotUsed={true}
-            // permanentTrackX={true}
-            scrollbarWidth={8}
-          >
-            <div className="flex-grow flex flex-col space-between px-4 py-2 space-y-2 leading-relaxed window--content">
-              {typeof children === 'function' ? children() : children}
-              <div
-                className="flex-grow space-y-2 leading-relaxed overflow-hidden"
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
-              {date && (
-                <div className="w-full py-2 pt-8 overflow-y-hidden">
-                  <div className="font-mono text-xs text-gray-400 overflow-hidden text-nowrap">
-                    <span className="select-none">{`░░ `}</span>
-                    {`PUBLISHED ${getFormattedTime(date, false)}`}
-                    <span className="select-none">
-                      {` ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░`}
-                    </span>
-                  </div>
-                </div>
-              )}
-            </div>
-          </Scrollbar>
+          <WindowChild date={date} html={html}>
+            {children}
+          </WindowChild>
         )}
       </article>
     </Rnd>
