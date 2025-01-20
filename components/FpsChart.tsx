@@ -55,19 +55,19 @@ export function FpsChart({ height = 20, width = 280 }) {
       </div>
       <div className="flex flex-col gap-2">
         <span className="flex justify-between">
-          <span>FPS: </span>
+          <span>FPS:</span>
           <span>{bars.length ? currentFps.toFixed(2) : <LoadingDots />}</span>
         </span>
         <span className="flex justify-between">
-          <span>FPS (avg): </span>
+          <span>FPS (avg):</span>
           <span>{bars.length ? avgFps : <LoadingDots />}</span>
         </span>
         <span className="flex justify-between">
-          <span>FPS (max): </span>
+          <span>FPS (max):</span>
           <span>{bars.length ? maxFps.toFixed(2) : <LoadingDots />}</span>
         </span>
-        <div className="w-100 flex justify-between">
-          <span className="grow-0 whitespace-nowrap">FPS history: </span>
+        <div className="flex justify-between">
+          <span className="grow-0 whitespace-nowrap">FPS history:</span>
           <div className="grow align-right text-right">
             {bars.length ? (
               <svg

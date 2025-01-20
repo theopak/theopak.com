@@ -5,7 +5,9 @@
 *.tsbuildinfo
 .DS_Store
 .env*
+.partykit
 .vercel
+.wrangler
 certificates
 next-env.d.ts
 out

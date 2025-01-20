@@ -5,7 +5,7 @@ import type { PropsWithChildren } from 'react';
 import {
   createContext,
   useCallback,
-  // useEffect,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -145,16 +145,13 @@ export function WindowContextProvider({
     [openWindows, setOpen, updateWindow],
   );
 
-  // useEffect(
-  //   () =>
-  //     setOpenWindows((prev) => {
-  //       const updates = readUrlState();
-  //       console.log("mount effect", updates);
-  //       updates.forEach((update) => prev.set(update.id, update));
-  //       return prev;
-  //     }),
-  //   [],
-  // );
+  useEffect(() => {
+    const onPopState = () => setOpenWindows(readUrlState());
+    window.addEventListener('popstate', onPopState);
+    return () => {
+      window.removeEventListener('popstate', onPopState);
+    };
+  }, []);
 
   return <WindowContext value={value}>{children}</WindowContext>;
 }

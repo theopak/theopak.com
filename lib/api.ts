@@ -1,38 +1,38 @@
 import matter from 'gray-matter';
-import { join } from 'node:path';
 import { readdir, readFile } from 'node:fs/promises';
-import { unified } from 'unified';
-import remarkGfm from 'remark-gfm';
-import rehypeSlug from 'rehype-slug';
+import { join } from 'node:path';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
+import rehypeStringify from 'rehype-stringify';
+import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
-import rehypePrettyCode from 'rehype-pretty-code';
-import rehypeCodeTitles from 'rehype-code-titles';
-import rehypeRaw from 'rehype-raw';
-// import rehypeSanitize from "rehype-sanitize";
+import { unified } from 'unified';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
 const Parser = unified()
-  .use(remarkParse)
+  .use(remarkParse, { fragment: true })
   .use(remarkGfm)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
-  // .use(rehypeSanitize)
   .use(rehypePrettyCode, { theme: 'one-dark-pro' })
   .use(rehypeCodeTitles)
   .use(rehypeSlug)
   .use(rehypeAutolinkHeadings, {
     content: (arg) => ({
-      type: 'element',
-      tagName: 'a',
+      children: [{ type: 'text', value: '#' }],
       properties: {
+        ariaHidden: true,
         href: `#${arg.properties?.id}`,
         style: 'margin-right: 10px',
+        tabIndex: -1,
       },
-      children: [{ type: 'text', value: '#' }],
+      tagName: 'a',
+      type: 'element',
     }),
   })
   .use(rehypeStringify);
@@ -60,12 +60,12 @@ export async function getAllPostsMetadata() {
     .filter((p) => p.status === 'fulfilled')
     .map((p) => p.value)
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-    .reduce(
+    .reduce<Record<string, Omit<Awaited<ReturnType<typeof getPost>>, 'html'>>>(
       (acc, post) => {
         const { html: __html, ...rest } = post;
         acc[post.id] = rest;
         return acc;
       },
-      {} as Record<string, Omit<Awaited<ReturnType<typeof getPost>>, 'html'>>,
+      {},
     );
 }
