@@ -60,13 +60,13 @@ export function Window({
       {...rest}
     >
       <article
-        className="flex-grow flex flex-col h-full overflow-hidden"
+        className="grow flex flex-col h-full overflow-hidden"
         role={isPrimary ? 'main' : undefined}
         aria-labelledby={elementId}
       >
         <h1
           id={elementId}
-          className="border-b border-white flex-grow-0 p-2 text-center font-mono font-extrabold truncate cursor-move"
+          className="border-b border-white grow-0 p-2 text-center font-mono font-extrabold truncate cursor-move"
         >
           {title}
         </h1>

@@ -155,7 +155,7 @@ export default function Asdf({ posts }: Props) {
               <span>{Intl.DateTimeFormat().resolvedOptions().timeZone}</span>
             </span>
             <span className="flex justify-between overflow-hidden">
-              <span className="flex-shrink-0">Your visits:</span>
+              <span className="shrink-0">Your visits:</span>
               <span className="overflow-hidden text-ellipsis">
                 <VisitsCounter />
               </span>

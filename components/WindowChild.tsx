@@ -13,17 +13,17 @@ type Props = {
 export function WindowChild({ children, date, html }: Props) {
   return (
     <Scrollbar
-      className="flex-grow"
+      className="grow"
       disableTracksWidthCompensation={true}
       noDefaultStyles={true}
       removeTrackXWhenNotUsed={true}
       scrollbarWidth={8}
     >
-      <div className="flex-grow flex flex-col space-between px-4 py-2 space-y-2 leading-relaxed window--content">
+      <div className="grow flex flex-col space-between px-4 py-2 space-y-2 leading-relaxed window--content">
         {typeof children === 'function' ? children() : children}
         {typeof html === 'string' && (
           <div
-            className="flex-grow space-y-2 leading-relaxed overflow-hidden"
+            className="grow space-y-2 leading-relaxed overflow-hidden"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         )}
