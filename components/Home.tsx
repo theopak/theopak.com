@@ -12,7 +12,7 @@ export default function Home(props) {
       throttle={16}
     >
       <RoomProvider
-        autoConnect={false} // HACK: quota exceeded
+        // autoConnect={false} // HACK: quota exceeded
         id="theo"
         initialPresence={{ cursor: null }}
       >
