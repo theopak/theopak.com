@@ -66,7 +66,7 @@ export function FpsChart({ height = 20, width = 280 }) {
           <span>FPS (max):</span>
           <span>{bars.length ? maxFps.toFixed(2) : <LoadingDots />}</span>
         </span>
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-1">
           <span className="grow-0 whitespace-nowrap">FPS history:</span>
           <div className="grow align-right text-right">
             {bars.length ? (

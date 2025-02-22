@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 import { use } from 'react';
 import type { Grid, Props as RndProps } from 'react-rnd';
 import { Rnd } from 'react-rnd';
@@ -7,13 +7,13 @@ import { WindowChild } from './WindowChild';
 
 const DRAG_GRID = [16, 16] as Grid;
 
-type Props = {
-  children?: ReactNode | (() => ReactNode) | null;
+type Props = PropsWithChildren<{
   date?: Date | null;
   id: string;
   isPrimary?: boolean | null;
   title?: string | null;
-} & Omit<RndProps, 'default'>;
+}> &
+  Omit<RndProps, 'default'>;
 
 export function Window({
   children,

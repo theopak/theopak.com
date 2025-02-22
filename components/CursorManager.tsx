@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useOthers } from "@liveblocks/react";
-import { Cursor } from "./Cursor";
+import { useOthers } from '@liveblocks/react';
+import { Cursor } from './Cursor';
 
 const COLORS = [
   'rgb(89.8% 45.1% 45.1%)',

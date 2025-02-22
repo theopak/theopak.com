@@ -57,7 +57,7 @@ export default function Asdf({ posts }: Props) {
         >
           <a
             className="hover:underline"
-            href="https://www.linkedin.com/in/theopak/"
+            href="https://linkedin.com/in/theopak/"
             target="_blank"
           >
             LinkedIn
@@ -74,7 +74,7 @@ export default function Asdf({ posts }: Props) {
         <div
           className="w-full h-full flex items-center justify-center"
           itemScope={true}
-          itemType="http://data-vocabulary.org/Person"
+          itemType="https://schema.org/Person"
         >
           <div className="max-w-3xl w-full flex gap-4 flex-col p-5 md:flex-row md:p-0">
             <img
