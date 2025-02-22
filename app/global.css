@@ -29,6 +29,10 @@ body {
   background: var(--background);
 }
 
+.transform-handle {
+  @apply absolute w-2 h-2 bg-white border border-green-600;
+}
+
 .far-away {
   opacity: 0.8;
   filter: grayscale(0.8);
