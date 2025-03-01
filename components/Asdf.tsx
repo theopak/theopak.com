@@ -77,26 +77,14 @@ export default function Asdf({ posts }: Props) {
           itemType="https://schema.org/Person"
         >
           <div className="max-w-3xl w-full flex gap-4 flex-col p-5 md:flex-row md:p-0">
-            <div className="shrink-0 w-40 h-40 mt-[2px] ml-4 m:ml-0 relative group cursor-pointer">
-              <img
-                alt="portrait of theo pak"
-                className="w-full h-full object-cover"
-                height={160}
-                itemProp="photo"
-                src="/headshot.avif"
-                width={160}
-              />
-              <div className="absolute inset-0 border border-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-                <div className="transform-handle -top-1    -left-1 " />
-                <div className="transform-handle -top-1    -right-1" />
-                <div className="transform-handle -bottom-1 -left-1 " />
-                <div className="transform-handle -bottom-1 -right-1" />
-                <div className="transform-handle -top-1    left-1/2 -ml-1" />
-                <div className="transform-handle -bottom-1 left-1/2 -ml-1" />
-                <div className="transform-handle top-1/2   -left-1  -mt-1" />
-                <div className="transform-handle top-1/2   -right-1 -mt-1" />
-              </div>
-            </div>
+            <img
+              alt="portrait of theo pak"
+              className="w-40 h-40 mt-[2px] ml-4 m:ml-0"
+              height={160}
+              itemProp="photo"
+              src="/headshot.avif"
+              width={160}
+            />
             <div>
               <div>
                 {'\xA0'}
