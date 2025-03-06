@@ -24,7 +24,7 @@ export function Window({
   title,
   ...rest
 }: Props) {
-  const { setOpen, updateWindow } = use(WindowContext);
+  const { setClosed, setOpen, updateWindow } = use(WindowContext);
   const elementId = `title-${id}`;
 
   return (
@@ -64,12 +64,17 @@ export function Window({
         role={isPrimary ? 'main' : undefined}
         aria-labelledby={elementId}
       >
-        <h1
-          id={elementId}
-          className="border-b border-white grow-0 p-2 text-center font-mono font-extrabold truncate cursor-move"
-        >
-          {title}
-        </h1>
+        <div className="flex border-b border-white grow-0 font-mono font-extrabold cursor-move">
+          <button
+            className="border-r w-9 cursor-pointer hover:bg-gray-600 active:bg-gray-400"
+            onClick={() => setClosed(id)}
+          >
+            ×
+          </button>
+          <h1 id={elementId} className="p-2 truncate">
+            {title}
+          </h1>
+        </div>
         {isPrimary && (
           <WindowChild date={date} html={html}>
             {children}

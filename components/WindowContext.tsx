@@ -21,6 +21,7 @@ type UpdateWindowData = { position: Position } | { size: ResizableDelta };
 
 export const WindowContext = createContext({
   openWindows: {} as OpenWindows,
+  setClosed: (__id: string) => {},
   setOpen: (__id: string) => {},
   updateWindow: (__id: string, __data: UpdateWindowData) => {},
 });
@@ -59,11 +60,10 @@ function readUrlState() {
   const url =
     typeof window === 'undefined' ? undefined : new URL(window.location.href);
   const postId = getPostId();
-  const stateAsSearchParams = url?.searchParams || new URLSearchParams();
   const state: OpenWindows = new Map();
-  stateAsSearchParams.entries()?.forEach?.(([key, value]) => {
-    state.set(key, JSON.parse(value));
-  });
+  url?.searchParams
+    ?.entries()
+    ?.forEach?.(([key, value]) => state.set(key, JSON.parse(value)));
   if (postId) {
     state.delete(postId);
     state.set(postId, { ...getDefaultValues(), id: postId });
@@ -101,6 +101,17 @@ export function WindowContextProvider({
       }
     },
     [push],
+  );
+
+  const setClosed = useCallback(
+    (id: string) =>
+      setOpenWindows((prev) => {
+        const next = new Map(prev);
+        next.delete(id);
+        replaceUrlState(next);
+        return next;
+      }),
+    [replaceUrlState],
   );
 
   const setOpen = useCallback(
@@ -141,8 +152,8 @@ export function WindowContextProvider({
   );
 
   const value = useMemo(
-    () => ({ openWindows, setOpen, updateWindow }),
-    [openWindows, setOpen, updateWindow],
+    () => ({ openWindows, setClosed, setOpen, updateWindow }),
+    [openWindows, setClosed, setOpen, updateWindow],
   );
 
   useEffect(() => {
