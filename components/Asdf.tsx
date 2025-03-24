@@ -65,7 +65,7 @@ export default function Asdf({ posts }: Props) {
           {' • '}
           <a
             className="hover:underline"
-            href="https://github.com/theopak/"
+            href="https://github.com/theopak/theopak.com/blob/main/components/brainsmoother.glsl#L66"
             target="_blank"
           >
             GitHub
