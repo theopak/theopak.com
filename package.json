@@ -73,7 +73,7 @@
     "typescript": "5.8.2",
     "typescript-eslint": "8.25.0",
     "unified": "11.0.5",
-    "wrangler": "3.111.0"
+    "wrangler": "4.4.0"
   },
   "engines": {
     "node": "22.x"
