@@ -13,13 +13,22 @@ export function Visualizer() {
   const cursors = useRef<Array<number>>(new Array(100).fill(-666));
 
   useEffect(() => {
-    cursors.current[0] = others.length ? myPresence.cursor?.x || -666 : -666;
-    cursors.current[1] = others.length ? myPresence.cursor?.y || -666 : -666;
+    const cursor =
+      myPresence.cursor && typeof myPresence.cursor === 'object'
+        ? (myPresence.cursor as { x: number; y: number })
+        : null;
+    cursors.current[0] = others.length && cursor ? cursor.x : -666;
+    cursors.current[1] = others.length && cursor ? cursor.y : -666;
     for (let i = 0; i < others.length; i += 2) {
       const index = i + 2;
-      if (others[i].presence?.cursor) {
-        cursors.current[index] = others[i].presence.cursor.x;
-        cursors.current[index + 1] = others[i].presence.cursor.y;
+      const otherCursor =
+        others[i].presence?.cursor &&
+        typeof others[i].presence.cursor === 'object'
+          ? (others[i].presence.cursor as { x: number; y: number })
+          : null;
+      if (otherCursor) {
+        cursors.current[index] = otherCursor.x;
+        cursors.current[index + 1] = otherCursor.y;
       } else {
         cursors.current[index] = -100;
         cursors.current[index + 1] = -100;

@@ -25,8 +25,16 @@ export default function CursorManager() {
           <Cursor
             key={`cursor-${connectionId}`}
             color={COLORS[connectionId % COLORS.length]}
-            x={presence.cursor?.x}
-            y={presence.cursor?.y}
+            x={
+              presence.cursor && typeof presence.cursor === 'object'
+                ? (presence.cursor as { x: number }).x
+                : 0
+            }
+            y={
+              presence.cursor && typeof presence.cursor === 'object'
+                ? (presence.cursor as { y: number }).y
+                : 0
+            }
           />
         ))}
       <Cursor />
