@@ -79,7 +79,6 @@ export function FpsChart({ height = 20, width = 280 }) {
                 <defs>
                   <pattern
                     id="bar-pattern"
-                    // viewBox={`0, 0, 1, ${height}`}
                     width={3}
                     height={4}
                     x={0}
@@ -93,33 +92,33 @@ export function FpsChart({ height = 20, width = 280 }) {
                     <feColorMatrix
                       type="matrix"
                       values="
-                      1 0 0 1 0
-                      0 1 0 0 0
-                      0 0 0 0 0
-                      0 0 0 1 0
-                    "
+                        1 0 0 1 0
+                        0 1 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0
+                      "
                     />
                   </filter>
                   <filter id="green-to-red">
                     <feColorMatrix
                       type="matrix"
                       values="
-                      0 1 0 0 0
-                      0 0 0 0 0
-                      0 0 0 0 0
-                      0 0 0 1 0
-                    "
+                        0 1 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0
+                      "
                     />
                   </filter>
                   <filter id="green-to-grey">
                     <feColorMatrix
                       type="matrix"
                       values="
-                      0 0.5 0 0 0
-                      0 0.5 0 0 0
-                      0 0.5 0 0 0
-                      0 0   0 1 0
-                    "
+                        0 0.5 0 0 0
+                        0 0.5 0 0 0
+                        0 0.5 0 0 0
+                        0 0   0 1 0
+                      "
                     />
                   </filter>
                 </defs>

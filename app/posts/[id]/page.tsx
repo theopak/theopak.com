@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { getPost, getAllPostsMetadata } from '../../../lib/api';
 import { WindowManager } from '../../../components/WindowManager';
@@ -6,7 +7,11 @@ export default async function PageForPost({ params }) {
   const { id } = await params;
   const posts = await getAllPostsMetadata();
   const post = await getPost(`${id}.md`);
-  return <WindowManager posts={posts} primaryPost={post} />;
+  return (
+    <Suspense fallback={null}>
+      <WindowManager posts={posts} primaryPost={post} />
+    </Suspense>
+  );
 }
 
 export async function generateMetadata({ params }): Promise<Metadata> {
