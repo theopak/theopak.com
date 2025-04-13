@@ -11,18 +11,18 @@ const nextConfig: NextConfig = {
   experimental: {
     // reactCompiler: true,
     scrollRestoration: true,
-    turbo: {
-      rules: {
-        '*.glsl': {
-          as: '*.js',
-          loaders: ['ts-shader-loader'],
-        },
-      },
-    },
   },
   poweredByHeader: false,
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
+  turbopack: {
+    rules: {
+      '*.glsl': {
+        as: '*.js',
+        loaders: ['ts-shader-loader'],
+      },
+    },
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
