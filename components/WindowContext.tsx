@@ -92,7 +92,7 @@ export function WindowContextProvider({
         lastId = key;
       });
       const url = new URL(window.location.href);
-      url.pathname = `/posts/${lastId}`;
+      url.pathname = lastId ? `/posts/${lastId}` : '/';
       url.search = stateAsSearchParams.toString();
       if (lastId === getPostId()) {
         window.history.replaceState(null, '', url);
