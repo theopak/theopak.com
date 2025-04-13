@@ -19,7 +19,7 @@ export function FpsChart({ height = 20, width = 280 }) {
       const gap = 1;
       let filterName = '';
       if (!value) {
-        filterName = 'url(#green-t-grey)';
+        filterName = 'url(#green-to-grey)';
       } else if (value > 50) {
         filterName = '';
       } else if (value > 30) {
