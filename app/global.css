@@ -46,6 +46,8 @@ body {
   contain: strict;
   visibility: hidden;
 
+  color: var(--color-gray-500);
+
   /*  2.25rem = 36px @16px/rem */
   contain-intrinsic-size: 250px 2.25rem;
 

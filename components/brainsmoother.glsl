@@ -10,7 +10,7 @@ precision lowp float;
 const float HALF_PI         = 1.5707963267948966;
 const float WAVE_SPEED      = 0.5;
 const float PULSE_SPEED     = 0.3;
-const float RADIUS          = 0.1;
+const float RADIUS          = 0.08;
 const int   MAX_CURSORS     = 50;
 const float CURSOR_HEIGHT   = 16.0;
 const float CURSOR_WIDTH    = 16.0;
@@ -23,9 +23,9 @@ const vec3  COLOR_BG        = vec3( 0.0                                    );
  */
 vec3 getCursorColor(int i) {
     int index = i - (i / 7) * 7;
-    if (index == 0) return vec3(0.898, 0.451, 0.451);
-    if (index == 1) return vec3(0.584, 0.459, 0.804);
-    if (index == 2) return vec3(0.306, 0.765, 0.969);
+    if (index == 0) return vec3(0.584, 0.459, 0.804);
+    if (index == 1) return vec3(0.306, 0.765, 0.969);
+    if (index == 2) return vec3(0.898, 0.451, 0.451);
     if (index == 3) return vec3(0.506, 0.780, 0.518);
     if (index == 4) return vec3(1.000, 0.945, 0.463);
     if (index == 5) return vec3(1.000, 0.541, 0.396);
@@ -57,11 +57,12 @@ float luma(vec3 color) {
  * ShaderToy fragment shader for use with react-shaders or shadertoy-react.
  * I want to give the effect of soothing rain falling down the screen, or
  * maybe the back of the Daft Punk "Homework" jacket, with a little ambiguity.
- * Multiplayer cursors drop color effects to create some sense of emotional
- * interaction. There's a CRT scanline effect to fuzz out the otherwise very
- * basic patterns, which also gives great performance benefits due to skipping
- * every other row of pixels. There's a dramatic Matrix-inspired entry fade
- * which allows this shader to fade in from black after loading lazily.
+ * Multiplayer cursors drop color and noise effects to create some sense of
+ * emotional interaction with each other and with the environment. There's a
+ * CRT scanline effect to fuzz out the otherwise very basic patterns, which
+ * also gives great performance benefits due to skipping every other row of
+ * pixels. There's a dramatic Matrix-inspired entry fade which allows this
+ * shader to fade in from black after loading lazily.
  */
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // for fade-in, calculate impulse that goes from -1 to +1 then oscillates between +1 and 0
@@ -99,9 +100,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         return;
     }
 
-    // set color based on base displacement and all cursor positions
-    vec3 color = mix(COLOR_LINE_1, COLOR_LINE_2, abs(displacement) * 2.0 + length(pos) * 0.5);
-    float luminance = pow(luma(color) * 1.2, 1.5);
+    // color and noise effects based on proximity to all cursor positions
+    vec3  cursorColorAcc  = vec3(0.0);
+    float cursorEffectAcc = 0.0;
     for (int i = 0; i < MAX_CURSORS; i++) {
         if (i >= uCursorsCount) break;
         vec2 cursorPosition = vec2(
@@ -110,9 +111,22 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         );
         float distance = length(fragCoord - cursorPosition) / iResolution.x;
         if (distance >= RADIUS) continue;
-        float cursorEffect = smoothstep(RADIUS, RADIUS * 0.05, distance);
-        displacement = mix(displacement, displacement * (1.0 + cursorEffect), cursorEffect);
-        color = mix(color, getCursorColor(i) * luminance, cursorEffect * luminance);
+        float cursorEffect = smoothstep(RADIUS, RADIUS * 0.01, distance);
+        vec2 noiseCoord = fragCoord + vec2(float(i) * 123.45, iTime * 67.89);
+        float noiseStrength = random(noiseCoord) * 2.0 - 1.0;
+        displacement += noiseStrength * cursorEffect * 0.3;
+        cursorColorAcc += getCursorColor(i) * cursorEffect;
+        cursorEffectAcc += cursorEffect;
+    }
+
+    // set color by blending all computed effects
+    // TODO: proper gamma correction
+    float colorWeight = abs(displacement) * 2.0 + length(pos) * 0.5;
+    vec3 color = mix(COLOR_LINE_1, COLOR_LINE_2, colorWeight);
+    if (cursorEffectAcc > 0.0) {
+        float luminance = pow(luma(color) * 1.2, 1.5);
+        vec3 cursorColor = cursorColorAcc * luminance / cursorEffectAcc;
+        color = mix(color, cursorColor, cursorEffectAcc * luminance);
     }
 
     // post-processing
