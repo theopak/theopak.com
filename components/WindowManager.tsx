@@ -12,9 +12,9 @@ type Props = {
 
 export function WindowManager({ posts, primaryPost }: Props) {
   const { openWindows } = use(WindowContext);
-  const postsToRender = primaryPost
-    ? [...openWindows.entries()].slice(0, -1)
-    : [...openWindows.entries()];
+  const postsToRender = [...openWindows.entries()].filter(
+    ([id]) => !primaryPost || id !== primaryPost.id,
+  );
 
   return (
     <>
