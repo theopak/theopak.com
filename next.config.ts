@@ -5,11 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   experimental: {
-    // reactCompiler: true,
     scrollRestoration: true,
   },
   poweredByHeader: false,
