@@ -106,17 +106,25 @@ export default function Asdf({ posts }: Props) {
                 {'→ Occupation:'}
                 <br />
                 {'\xA0\xA0'}
-                <span itemProp="jobTitle">Staff Software Engineer</span>
+                <span itemProp="jobTitle">Founder/Engineer</span>
                 <br />
-                {'→ Employer:'}
+                {'→ Company:'}
                 <br />
                 {'\xA0\xA0'}
                 <span
                   itemScope={true}
+                  itemProp="organization"
                   itemType="https://schema.org/Organization"
                 >
-                  <span itemProp="name">Adobe</span>/
-                  <span itemProp="subOrganization">Frame.io</span>
+                  <span itemProp="name">
+                    <a
+                      itemProp="url"
+                      href="https://stringout.com?utm_source=theopak.com"
+                      target="_blank"
+                    >
+                      <span itemProp="name">Stringout</span>
+                    </a>
+                  </span>
                 </span>
                 <br />
                 {'→ Interests:'}
